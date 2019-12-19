@@ -1,4 +1,4 @@
-package banners.clients;
+package testNG;
 
 import org.testng.annotations.Test;
 
@@ -7,15 +7,14 @@ import test.pages.GeneralPage;
 import test.pages.LoginPage;
 import test.pages.WebLinksPage;
 import test.utils.Utilities;
-import testNG.Default_TestNG_method;
 import test.utils.Constants;
 import test.utils.Log4j;
 
 import static org.testng.Assert.assertEquals;
 
-public class TC02 extends Default_TestNG_method {
+public class TC_JOOMLA_BANNERS_CLIENTS_001 extends Default_TestNG_method {
 
-	public TC02() {
+	public TC_JOOMLA_BANNERS_CLIENTS_001() {
 //		Constants.setFirefoxBrowser();
 		Constants.setChromeBrowser();
 //		Constants.setIEBrowser();
