@@ -48,7 +48,6 @@ public class BrowserHelper {
 			BrowserHelper.usingChrome();
 			break;
 		}
-		
 	}
 	//////////////
 	public static void usingChrome() {
