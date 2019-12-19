@@ -1,4 +1,4 @@
-package testNG;
+package testNG.weblinks;
 
 import org.testng.annotations.Test;
 
@@ -6,6 +6,7 @@ import test.pages.GeneralPage;
 import test.pages.LoginPage;
 import test.pages.WebLinksPage;
 import test.utils.Utilities;
+import testNG.Default_TestNG_method;
 import test.utils.Constants;
 import test.utils.Log4j;
 
