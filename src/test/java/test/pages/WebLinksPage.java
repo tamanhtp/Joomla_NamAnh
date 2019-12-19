@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import test.utils.BrowserHelper;
 import test.utils.Utilities;
 
-public class WebLinksPage {
+public class WebLinksPage extends GeneralPage{
 
 	// leftmenu Weblink
 	private static By leftmenu_WebLinks = By.xpath("//ul[@id='submenu']//a[contains(text(),'Web Links')]");
