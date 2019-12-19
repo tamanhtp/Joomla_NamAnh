@@ -31,6 +31,24 @@ public class BrowserHelper {
 		options_Chrome.addArguments("start-maximized");
 		options_Firefox.addArguments("start-maximized");
 	
+		switch (browser) {
+		case "chrome":
+			BrowserHelper.usingChrome();
+			break;
+		case "firefox":
+			BrowserHelper.usingFirefox();
+			break;
+		case "ie":
+			BrowserHelper.usingIE();
+			break;
+		case "edge":
+			BrowserHelper.usingEDGE();
+			break;
+		default:
+			BrowserHelper.usingChrome();
+			break;
+		}
+		
 	}
 	//////////////
 	public static void usingChrome() {

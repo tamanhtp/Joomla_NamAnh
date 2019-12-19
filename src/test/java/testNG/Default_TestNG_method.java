@@ -34,7 +34,6 @@ public class Default_TestNG_method {
 //		BrowserHelper.usingFirefox();
 		Log4j.info("Launch Browser and open Administrator page");
 		BrowserHelper.openAdministrator();
-
 	}
 
 	@AfterMethod(description = "Close Browser")
