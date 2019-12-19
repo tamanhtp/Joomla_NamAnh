@@ -43,7 +43,7 @@ public class TC01 extends Default_TestNG_method {
 		GeneralPage.saveAndClose();
 
 		Log4j.info("VP: check creation");
-		assertEquals(GeneralPage.checkSavedSuccessfully(), true);
+		assertEquals(GeneralPage.checkSaved(), true);
 		assertEquals(GeneralPage.checkCreationByTitle(title), true);
 
 		Log4j.info("Step 5: Logout");

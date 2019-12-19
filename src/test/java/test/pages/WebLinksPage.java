@@ -12,7 +12,11 @@ public class WebLinksPage extends GeneralPage{
 	private static By leftmenu_WebLinks_Categories = By.xpath("//ul[@id='submenu']//a[contains(text(),'Categories')]");
 	private static By leftmenu_WebLinks_Fields = By.xpath("//ul[@id='submenu']//a[contains(text(),'Fields')]");
 	private static By leftmenu_WebLinks_FieldGroup = By.xpath("//ul[@id='submenu']//a[contains(text(),'Field Groups')]");
+	
+	
 
+	
+	
 	// create new weblinks with title, alias, url, content, status
 	public static void createNew(String title, String alias, String url, String content, By status)
 			throws InterruptedException {
@@ -45,4 +49,8 @@ public class WebLinksPage extends GeneralPage{
 	public static void goto_weblinks_fieldGroups_leftmenu() {
 		BrowserHelper.driver.findElement(leftmenu_WebLinks_FieldGroup).click();
 	}
+	
+	
+	
+	
 }
