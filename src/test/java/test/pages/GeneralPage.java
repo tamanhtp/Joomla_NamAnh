@@ -115,11 +115,17 @@ public class GeneralPage {
 	private static By menu_Templates = By.xpath("//span[contains(text(),'Templates')]/..");
 	private static By menu_Languages = By.xpath("//span[contains(text(),'Languages')]/..");
 	private static By menu_IntallExtensions = By.xpath("//span[contains(text(),'Intall Extensions')]/..");
-	// sub menu weblink
+	// sub menu 
 	private static By submenu_WebLinks = By.xpath("//a[@class='dropdown-toggle menu-weblinks']");
+	private static By submenu_Banners = By.xpath("//a[@class='dropdown-toggle menu-banners']");
 
 	//alert message
-	private static By successfully_save = By.xpath("//div[@class='alert-message' and contains(text(),'successfully saved')]");
+	private static By mess_Saved = By.xpath("//div[@class='alert-message' and contains(text(),'saved')]");
+	private static By mess_Published = By.xpath("//div[@class='alert-message' and contains(text(),'published')]");
+	private static By mess_Trashed = By.xpath("//div[@class='alert-message' and contains(text(),'trashed')]");
+	private static By mess_Archived = By.xpath("//div[@class='alert-message' and contains(text(),'archived')]");
+	private static By mess_Checkedin = By.xpath("//div[@class='alert-message' and contains(text(),'checked in')]");
+	private static By mess_Unpublished = By.xpath("//div[@class='alert-message' and contains(text(),'unpublished')]");
 	//Logout
 	private static By user_menu = By.xpath("//div[contains(text(),'User Menu')]");
 	private static By logout_menu = By.linkText("Logout");
@@ -268,6 +274,9 @@ public class GeneralPage {
 	public static void goto_submenu_weblinks() {
 		BrowserHelper.driver.findElement(submenu_WebLinks).click();
 	}
+	public static void goto_submenu_Banner() {
+		BrowserHelper.driver.findElement(submenu_Banners).click();
+	}
 
 	public static void goto_weblinks() {
 		goto_components();
@@ -276,9 +285,25 @@ public class GeneralPage {
 
 	
 	//check after create an entry with alert message 
-	public static boolean checkSavedSuccessfully() {
-		return BrowserHelper.driver.findElement(successfully_save).isDisplayed();
+	public static boolean checkSaved() {
+		return BrowserHelper.driver.findElement(mess_Saved).isDisplayed();
 	}
+	public static boolean checkPublished() {
+		return BrowserHelper.driver.findElement(mess_Published).isDisplayed();
+	}
+	public static boolean checkTrashed() {
+		return BrowserHelper.driver.findElement(mess_Trashed).isDisplayed();
+	}
+	public static boolean checkArchived() {
+		return BrowserHelper.driver.findElement(mess_Archived).isDisplayed();
+	}
+	public static boolean checkCheckedin() {
+		return BrowserHelper.driver.findElement(mess_Checkedin).isDisplayed();
+	}
+	public static boolean checkUnpublished() {
+		return BrowserHelper.driver.findElement(mess_Unpublished).isDisplayed();
+	}
+	
 	//check if an entry created
 	public static boolean checkCreationByTitle(String title) {
 

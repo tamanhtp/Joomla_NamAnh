@@ -11,17 +11,18 @@ import test.utils.Log4j;
 
 import static org.testng.Assert.assertEquals;
 
-public class TC02 extends Default_TestNG_method {
+public class TC_JOOMLA_WEBLINKS_001 extends Default_TestNG_method {
 
-	public TC02() {
-//		Constants.setFirefoxBrowser();
-		Constants.setChromeBrowser();
+	public TC_JOOMLA_WEBLINKS_001() {
+		Constants.setFirefoxBrowser();
+//		Constants.setChromeBrowser();
 //		Constants.setIEBrowser();
 //		Constants.setEDGEBrowser();
 	}
 	@Test(description = "TC_JOOMLA_WEBLINKS_001 - Verify user can create new web link with valid information")
-	public void TC_JOOMLA_WEBLINKS_001() throws InterruptedException {
+	public void f() throws InterruptedException {
 
+		System.out.println(Constants.BROWSER);
 		String title = Utilities.faker_title();
 		
 		Log4j.info("Login");
@@ -41,7 +42,7 @@ public class TC02 extends Default_TestNG_method {
 		GeneralPage.saveAndClose();
 
 		Log4j.info("VP: check creation");
-		assertEquals(GeneralPage.checkSavedSuccessfully(), true);
+		assertEquals(GeneralPage.checkSaved(), true);
 		assertEquals(GeneralPage.checkCreationByTitle(title), true);
 
 		Log4j.info("Step 5: Logout");
