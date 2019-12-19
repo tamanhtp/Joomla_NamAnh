@@ -20,7 +20,7 @@ public class TC_JOOMLA_WEBLINKS_001 extends Default_TestNG_method {
 //		Constants.setEDGEBrowser();
 	}
 	@Test(description = "TC_JOOMLA_WEBLINKS_001 - Verify user can create new web link with valid information")
-	public void TC_JOOMLA_WEBLINKS_001() throws InterruptedException {
+	public void f() throws InterruptedException {
 
 		System.out.println(Constants.BROWSER);
 		String title = Utilities.faker_title();

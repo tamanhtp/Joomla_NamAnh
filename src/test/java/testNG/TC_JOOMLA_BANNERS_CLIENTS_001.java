@@ -21,7 +21,7 @@ public class TC_JOOMLA_BANNERS_CLIENTS_001 extends Default_TestNG_method {
 //		Constants.setEDGEBrowser();
 	}
 	@Test(description = "TC_JOOMLA_BANNERS_CLIENTS_002 - Verify that user can edit a client")
-	public void TC_JOOMLA_BANNERS_CLIENTS_002() throws InterruptedException {
+	public void f() throws InterruptedException {
 
 		String title = Utilities.faker_title();
 		
