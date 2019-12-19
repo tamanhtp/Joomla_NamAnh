@@ -8,7 +8,7 @@ import test.utils.Log4j;
 
 public class Default_TestNG_method {
 
-//	@SuppressWarnings("unused")
+	@SuppressWarnings("unused")
 	@BeforeMethod(description = "Launch latest Chrome >> goto Administrator page")
 	public void beforeMethod() {
 		
