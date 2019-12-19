@@ -2,6 +2,7 @@ package testNG;
 
 import org.testng.annotations.Test;
 
+import test.pages.BannersPage;
 import test.pages.GeneralPage;
 import test.pages.LoginPage;
 import test.pages.WebLinksPage;
@@ -27,15 +28,16 @@ public class TC02 extends Default_TestNG_method {
 		Log4j.info("Login");
 		LoginPage.login(Constants.LOGIN_USERNAME, Constants.LOGIN_PASSWORD);
 				
-		Log4j.info("Step1: Goto weblinks page");
+		Log4j.info("Step1: Goto Banners page");
 		GeneralPage.goto_components();
-		GeneralPage.goto_submenu_weblinks();
+		GeneralPage.goto_submenu_Banner();
+		
 		
 		Log4j.info("Step2: Goto create new");
-		WebLinksPage.goto_createNew();
+		BannersPage.goto_createNew();
 		
 		Log4j.info("Step3: create new weblinks");
-		WebLinksPage.createNew(title,Utilities.faker_title(),Utilities.faker_title(),Utilities.faker_content(),GeneralPage.status_Unpublished);
+		BannersPage.createNew(title,Utilities.faker_title(),Utilities.faker_title(),Utilities.faker_content(),GeneralPage.status_Unpublished);
 		
 		Log4j.info("Step4: save and close");
 		GeneralPage.saveAndClose();

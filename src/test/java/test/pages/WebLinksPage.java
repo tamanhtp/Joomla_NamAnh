@@ -11,8 +11,7 @@ public class WebLinksPage {
 	private static By leftmenu_WebLinks = By.xpath("//ul[@id='submenu']//a[contains(text(),'Web Links')]");
 	private static By leftmenu_WebLinks_Categories = By.xpath("//ul[@id='submenu']//a[contains(text(),'Categories')]");
 	private static By leftmenu_WebLinks_Fields = By.xpath("//ul[@id='submenu']//a[contains(text(),'Fields')]");
-	private static By leftmenu_WebLinks_FieldGroup = By
-			.xpath("//ul[@id='submenu']//a[contains(text(),'Field Groups')]");
+	private static By leftmenu_WebLinks_FieldGroup = By.xpath("//ul[@id='submenu']//a[contains(text(),'Field Groups')]");
 
 	// create new weblinks with title, alias, url, content, status
 	public static void createNew(String title, String alias, String url, String content, By status)

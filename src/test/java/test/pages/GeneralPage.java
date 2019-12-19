@@ -115,8 +115,9 @@ public class GeneralPage {
 	private static By menu_Templates = By.xpath("//span[contains(text(),'Templates')]/..");
 	private static By menu_Languages = By.xpath("//span[contains(text(),'Languages')]/..");
 	private static By menu_IntallExtensions = By.xpath("//span[contains(text(),'Intall Extensions')]/..");
-	// sub menu weblink
+	// sub menu 
 	private static By submenu_WebLinks = By.xpath("//a[@class='dropdown-toggle menu-weblinks']");
+	private static By submenu_Banners = By.xpath("//a[@class='dropdown-toggle menu-banners']");
 
 	//alert message
 	private static By successfully_save = By.xpath("//div[@class='alert-message' and contains(text(),'successfully saved')]");
@@ -267,6 +268,9 @@ public class GeneralPage {
 	///// sub menu
 	public static void goto_submenu_weblinks() {
 		BrowserHelper.driver.findElement(submenu_WebLinks).click();
+	}
+	public static void goto_submenu_Banner() {
+		BrowserHelper.driver.findElement(submenu_Banners).click();
 	}
 
 	public static void goto_weblinks() {
