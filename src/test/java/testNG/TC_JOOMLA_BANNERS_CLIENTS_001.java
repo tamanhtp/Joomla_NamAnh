@@ -14,6 +14,8 @@ import static org.testng.Assert.assertEquals;
 public class TC_JOOMLA_BANNERS_CLIENTS_001 extends Default_TestNG_method {
 
 	public TC_JOOMLA_BANNERS_CLIENTS_001() {
+		
+		
 //		Constants.setFirefoxBrowser();
 		Constants.setChromeBrowser();
 //		Constants.setIEBrowser();
