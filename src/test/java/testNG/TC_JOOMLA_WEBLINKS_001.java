@@ -29,8 +29,8 @@ public class TC_JOOMLA_WEBLINKS_001 extends Default_TestNG_method {
 		LoginPage.login(Constants.LOGIN_USERNAME, Constants.LOGIN_PASSWORD);
 				
 		Log4j.info("Step1: Goto weblinks page");
-		GeneralPage.goto_components();
-		GeneralPage.goto_submenu_weblinks();
+		GeneralPage.gotoComponents();
+		GeneralPage.gotoWeblinks();
 		
 		Log4j.info("Step2: Goto create new");
 		WebLinksPage.goto_createNew();

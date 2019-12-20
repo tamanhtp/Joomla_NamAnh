@@ -6,21 +6,21 @@ import test.utils.BrowserHelper;
 
 public class GeneralPage {
 
-	private static By btn_new = By.id("toolbar-new");
-	private static By btn_edit = By.id("toolbar-edit");
-	private static By btn_publish = By.id("toolbar-publish");
-	private static By btn_unpublish = By.id("toolbar-unpublish");
-	private static By btn_archive = By.id("toolbar-archive");
-	private static By btn_checkin = By.id("toolbar-checkin");
-	private static By btn_trash = By.id("toolbar-trash");
-	private static By btn_batch = By.id("toolbar-batch");
-	private static By btn_options = By.id("toolbar-options");
-	private static By btn_help = By.id("toolbar-help");
-	private static By btn_refresh = By.id("toolbar-refresh");
-	private static By btn_apply = By.id("toolbar-apply");
-	private static By btn_save = By.id("toolbar-save");
-	private static By btn_save_new = By.id("toolbar-save-new");
-	private static By btn_cancel = By.id("toolbar-cancel");
+	public static By btn_new = By.id("toolbar-new");
+	public static By btn_edit = By.id("toolbar-edit");
+	public static By btn_publish = By.id("toolbar-publish");
+	public static By btn_unpublish = By.id("toolbar-unpublish");
+	public static By btn_archive = By.id("toolbar-archive");
+	public static By btn_checkin = By.id("toolbar-checkin");
+	public static By btn_trash = By.id("toolbar-trash");
+	public static By btn_batch = By.id("toolbar-batch");
+	public static By btn_options = By.id("toolbar-options");
+	public static By btn_help = By.id("toolbar-help");
+	public static By btn_refresh = By.id("toolbar-refresh");
+	public static By btn_apply = By.id("toolbar-apply");
+	public static By btn_save = By.id("toolbar-save");
+	public static By btn_save_new = By.id("toolbar-save-new");
+	public static By btn_cancel = By.id("toolbar-cancel");
 
 	public static By txt_title = By.id("jform_title");
 	public static By txt_alias = By.id("jform_alias");
@@ -130,6 +130,9 @@ public class GeneralPage {
 	private static By user_menu = By.xpath("//div[contains(text(),'User Menu')]");
 	private static By logout_menu = By.linkText("Logout");
 	
+	public static void click_button(By btn) {
+		BrowserHelper.driver.findElement(btn).click();
+	}
 	public static void createnew() {
 		BrowserHelper.driver.findElement(btn_new).click();
 	}
@@ -190,96 +193,94 @@ public class GeneralPage {
 		BrowserHelper.driver.findElement(btn_cancel).click();
 	}
 
-	public static void goto_home() {
+	public static void gotoHome() {
 		BrowserHelper.driver.findElement(menu_ControlPanel).click();
 	}
 
-	public static void goto_system() {
+	public static void gotoSystem() {
 		BrowserHelper.driver.findElement(menu_System).click();
 	}
 
-	public static void goto_users() {
+	public static void gotoUsers_menubar() {
 		BrowserHelper.driver.findElement(menu_Users).click();
 	}
 
-	public static void goto_menus() {
+	public static void gotoMenus() {
 		BrowserHelper.driver.findElement(menu_Menus).click();
 	}
 
-	public static void goto_content() {
+	public static void gotoContent() {
 		BrowserHelper.driver.findElement(menu_Content).click();
 	}
 
-	public static void goto_components() {
+	public static void gotoComponents() {
 		BrowserHelper.driver.findElement(menu_Components).click();
 	}
 
-	public static void goto_extensions() {
+	public static void gotoExtensions() {
 		BrowserHelper.driver.findElement(menu_Extensions).click();
 	}
 
-	public static void goto_help() {
+	public static void gotoHelp() {
 		BrowserHelper.driver.findElement(menu_Help).click();
 	}
 
-	public static void goto_newArticle_leftmenu() {
+	public static void gotoNewArticle() {
 		BrowserHelper.driver.findElement(menu_NewArticle).click();
 	}
 
-	public static void goto_articles_leftmenu() {
+	public static void gotoArticles() {
 		BrowserHelper.driver.findElement(menu_Articles).click();
 	}
 
-	public static void goto_categories_leftmenu() {
+	public static void gotoCategories() {
 		BrowserHelper.driver.findElement(menu_Categories).click();
 	}
 
-	public static void goto_media_leftmenu() {
+	public static void gotoMedia() {
 		BrowserHelper.driver.findElement(menu_Media).click();
 	}
 
-	public static void goto_menus_leftmenu() {
+	public static void gotoMenus_menubar() {
 		BrowserHelper.driver.findElement(menu_Menu_s).click();
 	}
 
-	public static void goto_modules_leftmenu() {
+	public static void gotoModules() {
 		BrowserHelper.driver.findElement(menu_Modules).click();
 	}
 
-	public static void goto_users_leftmenu() {
+	public static void gotoUsers() {
 		BrowserHelper.driver.findElement(menu_Users).click();
 	}
 
-	public static void goto_noUrgent_leftmenu() {
+	public static void gotoNoUrgent() {
 		BrowserHelper.driver.findElement(menu_NoUrgentRequests).click();
 	}
 
-	public static void goto_global_leftmenu() {
+	public static void gotoGlobal() {
 		BrowserHelper.driver.findElement(menu_Global).click();
 	}
 
-	public static void goto_templates_leftmenu() {
+	public static void gotoTemplates() {
 		BrowserHelper.driver.findElement(menu_Templates).click();
 	}
 
-	public static void goto_language_leftmenu() {
+	public static void gotoLanguage() {
 		BrowserHelper.driver.findElement(menu_Languages).click();
 	}
 
-	public static void goto_intallExtensions_leftmenu() {
+	public static void gotoIntallExtensions() {
 		BrowserHelper.driver.findElement(menu_IntallExtensions).click();
 	}
 
 	///// sub menu
-	public static void goto_submenu_weblinks() {
-		BrowserHelper.driver.findElement(submenu_WebLinks).click();
-	}
-	public static void goto_submenu_Banner() {
+	public static void gotoBanner() {
+		gotoComponents();
 		BrowserHelper.driver.findElement(submenu_Banners).click();
 	}
 
-	public static void goto_weblinks() {
-		goto_components();
+	public static void gotoWeblinks() {
+		gotoComponents();
 		BrowserHelper.driver.findElement(submenu_WebLinks).click();
 	}
 

@@ -28,19 +28,19 @@ public class BannersPage extends GeneralPage{
 		BannersPage.createnew();
 	}
 	
-	public static void goto_banners_leftmenu() {
+	public static void gotoBanners() {
 		BrowserHelper.driver.findElement(leftmenu_Banners).click();
 	}
 
-	public static void goto_banners_Categories_leftmenu() {
+	public static void gotoBannersCategories() {
 		BrowserHelper.driver.findElement(leftmenu_Banners_Categories).click();
 	}
 
-	public static void goto_banners_Clients_leftmenu() {
+	public static void gotoBannersClients() {
 		BrowserHelper.driver.findElement(leftmenu_Banners_Clients).click();
 	}
 
-	public static void goto_banners_Tracks_leftmenu() {
+	public static void gotoBannersTracks() {
 		BrowserHelper.driver.findElement(leftmenu_Banners_Tracks).click();
 	}
 
