@@ -30,7 +30,7 @@ public class BrowserHelper {
 		options_Edge = new EdgeOptions();
 		options_Chrome.addArguments("start-maximized");
 		options_Firefox.addArguments("start-maximized");
-	
+		BrowserHelper.usingChrome();
 		switch (browser) {
 		case "chrome":
 			BrowserHelper.usingChrome();

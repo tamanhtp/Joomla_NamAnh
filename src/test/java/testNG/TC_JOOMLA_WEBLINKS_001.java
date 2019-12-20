@@ -55,18 +55,18 @@ public class TC_JOOMLA_WEBLINKS_001 extends Default_TestNG_method {
 		GeneralPage.selectCheckboxWithTitle(title);
 		
 		Log4j.info("Step 12: Click on 'Edit' icon of the top right toolbar");
-		GeneralPage.click_button(GeneralPage.btn_edit);
+		GeneralPage.click_button(GeneralPage._btnEdit);
 		
 		Log4j.info("Step 13: Enter a new title on 'Title' field");
-		Utilities.clear(GeneralPage.txt_title);
-		Utilities.sendkeys(GeneralPage.txt_title, title_new);
+		Utilities.clear(GeneralPage._txtTitle);
+		Utilities.sendkeys(GeneralPage._txtTitle, title_new);
 		
 		Log4j.info("Step 14: Enter new valid URL into 'URL' text field");
-		Utilities.clear(GeneralPage.txt_url);
-		Utilities.sendkeys(GeneralPage.txt_url, url_new);
+		Utilities.clear(GeneralPage._txtUrl);
+		Utilities.sendkeys(GeneralPage._txtUrl, url_new);
 		
 		Log4j.info("Step 15: Save");
-		GeneralPage.click_button(GeneralPage.btn_save);
+		GeneralPage.click_button(GeneralPage._btnSaveAndClose);
 		
 		Log4j.info("Step16: Verify the web link is saved successfully");
 		assertEquals(GeneralPage.checkSaved(), true);
@@ -75,9 +75,4 @@ public class TC_JOOMLA_WEBLINKS_001 extends Default_TestNG_method {
 		Log4j.info("Logout");
 		GeneralPage.logout();
 	}
-	
-
-
-
-
 }

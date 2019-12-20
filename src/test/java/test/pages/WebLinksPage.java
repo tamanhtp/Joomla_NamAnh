@@ -17,9 +17,9 @@ public class WebLinksPage extends GeneralPage{
 	public static void createNew(String title, String alias, String url, String content, By status)
 			throws InterruptedException {
 
-		Utilities.sendkeys(GeneralPage.txt_title, title);
-		Utilities.sendkeys(GeneralPage.txt_alias, alias);
-		Utilities.sendkeys(GeneralPage.txt_url, url);
+		Utilities.sendkeys(GeneralPage._txtTitle, title);
+		Utilities.sendkeys(GeneralPage._txtAlias, alias);
+		Utilities.sendkeys(GeneralPage._txtUrl, url);
 		Utilities.findElementInIframe(GeneralPage.txtarea_iframe, GeneralPage.txtarea_content, content);
 		Utilities.click(GeneralPage.dropdownlist_Status);
 		Utilities.click(status);
