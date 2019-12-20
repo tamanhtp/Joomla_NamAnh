@@ -24,8 +24,11 @@ public class Utilities {
 	// WebDriver.findElement.click
 	public static void click(By by) {
 		BrowserHelper.driver.findElement(by).click();
+	}	
+	// WebDriver.findElement.clear
+	public static void clear(By by) {
+		BrowserHelper.driver.findElement(by).clear();
 	}
-
 	// FAKER
 	public static String faker_title() {
 		return Constants.FAKER.book().title()+" - "+timer_hhmmss();
@@ -41,8 +44,6 @@ public class Utilities {
 		String result = dtf.format(now);
 		return result;
 	}
-
-
 	public static String string_format(String xpath, String variable) {
 
 		return String.format(xpath, variable);
