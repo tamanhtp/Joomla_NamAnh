@@ -18,27 +18,29 @@ public class TC_JOOMLA_BANNERS_CLIENTS_001 extends Default_TestNG_method {
 		Constants.setChromeBrowser();
 //		Constants.setIEBrowser();
 //		Constants.setEDGEBrowser();
+		
+
 	}
 	@Test(description = "TC_JOOMLA_BANNERS_CLIENTS_002 - Verify that user can edit a client")
 	public void f() throws InterruptedException {
 
 		String title = Utilities.faker_title();
 		
-		Log4j.info("Login");
+		Log4j.info("Step4: Login");
 		LoginPage.login(Constants.LOGIN_USERNAME, Constants.LOGIN_PASSWORD);
 				
-		//willbe deleted: pre-condition
+		Log4j.info("Step2: CreateNew");
 		BannersPage.createNew(title,Utilities.faker_title(),GeneralPage.status_Unpublished);
 		
 		Log4j.info("Step1: Goto BannersClients page");
-		GeneralPage.gotoBanner();
-		BannersPage.gotoBannersClients();
+		GeneralPage.clickComponents();
+		GeneralPage.clickBanner();
 		
-		Log4j.info("Step2: Select BannersClients to edit");
-		
-		
-		Log4j.info("Step4: save and close");
-		BannersPage.saveAndClose();
+//		Log4j.info("Step2: Select BannersClients to edit");
+//		
+//		
+//		Log4j.info("Step4: save and close");
+//		GeneralPage.saveAndClose();
 
 		///need edit
 		

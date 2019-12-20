@@ -201,27 +201,27 @@ public class GeneralPage {
 		BrowserHelper.driver.findElement(menu_System).click();
 	}
 
-	public static void gotoUsers_menubar() {
+	public static void clickUsers() {
 		BrowserHelper.driver.findElement(menu_Users).click();
 	}
 
-	public static void gotoMenus() {
+	public static void clickMenus() {
 		BrowserHelper.driver.findElement(menu_Menus).click();
 	}
 
-	public static void gotoContent() {
+	public static void clickContent() {
 		BrowserHelper.driver.findElement(menu_Content).click();
 	}
 
-	public static void gotoComponents() {
+	public static void clickComponents() {
 		BrowserHelper.driver.findElement(menu_Components).click();
 	}
 
-	public static void gotoExtensions() {
+	public static void clickExtensions() {
 		BrowserHelper.driver.findElement(menu_Extensions).click();
 	}
 
-	public static void gotoHelp() {
+	public static void clickHelp() {
 		BrowserHelper.driver.findElement(menu_Help).click();
 	}
 
@@ -273,18 +273,14 @@ public class GeneralPage {
 		BrowserHelper.driver.findElement(menu_IntallExtensions).click();
 	}
 
-	///// sub menu
-	public static void gotoBanner() {
-		gotoComponents();
+	public static void clickBanner() {
 		BrowserHelper.driver.findElement(submenu_Banners).click();
 	}
 
-	public static void gotoWeblinks() {
-		gotoComponents();
+	public static void clickWeblinks() {
 		BrowserHelper.driver.findElement(submenu_WebLinks).click();
 	}
 
-	
 	//check after create an entry with alert message 
 	public static boolean checkSaved() {
 		return BrowserHelper.driver.findElement(mess_Saved).isDisplayed();
@@ -314,6 +310,28 @@ public class GeneralPage {
 		String xpath = String.format("//table//a[contains(text(),'%s')]", title);
 		return BrowserHelper.driver.findElement(By.xpath(xpath)).isDisplayed();
 	}
+	public static void clickAnEntryWithTitle(String title) {
+		
+		BrowserHelper.driver.findElement(GeneralPage.txt_filter_search).sendKeys(title);
+		BrowserHelper.driver.findElement(GeneralPage.btn_search).click();
+		
+		String xpath = String.format("//table//a[contains(text(),'%s')]", title);
+		BrowserHelper.driver.findElement(By.xpath(xpath)).click();
+		
+	}
+	public static void selectCheckboxWithTitle(String title) {
+		
+		BrowserHelper.driver.findElement(GeneralPage.txt_filter_search).sendKeys(title);
+		BrowserHelper.driver.findElement(GeneralPage.btn_search).click();
+		
+		String xpath = String.format("//table//a[contains(text(),'%s')]/../..//input", title);
+		if(!BrowserHelper.driver.findElement(By.xpath(xpath)).isSelected())
+		{
+			BrowserHelper.driver.findElement(By.xpath(xpath)).click();
+		}
+	}
+	
+	//table//a[contains(text(),'A Many')]/../..//input
 	//logout from any page by menubar
 	public static void logout() {
 		BrowserHelper.driver.findElement(user_menu).click();
