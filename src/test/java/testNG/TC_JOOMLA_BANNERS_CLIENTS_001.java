@@ -19,6 +19,8 @@ public class TC_JOOMLA_BANNERS_CLIENTS_001 extends Default_TestNG_method {
 		Constants.setChromeBrowser();
 //		Constants.setIEBrowser();
 //		Constants.setEDGEBrowser();
+		
+		
 	}
 	@Test(description = "TC_JOOMLA_BANNERS_CLIENTS_002 - Verify that user can edit a client")
 	public void f() throws InterruptedException {
