@@ -6,27 +6,27 @@ import test.utils.BrowserHelper;
 
 public class GeneralPage {
 
-	public static By btn_new = By.id("toolbar-new");
-	public static By btn_edit = By.id("toolbar-edit");
-	public static By btn_publish = By.id("toolbar-publish");
-	public static By btn_unpublish = By.id("toolbar-unpublish");
-	public static By btn_archive = By.id("toolbar-archive");
-	public static By btn_checkin = By.id("toolbar-checkin");
-	public static By btn_trash = By.id("toolbar-trash");
-	public static By btn_batch = By.id("toolbar-batch");
-	public static By btn_options = By.id("toolbar-options");
-	public static By btn_help = By.id("toolbar-help");
-	public static By btn_refresh = By.id("toolbar-refresh");
-	public static By btn_apply = By.id("toolbar-apply");
-	public static By btn_save = By.id("toolbar-save");
-	public static By btn_save_new = By.id("toolbar-save-new");
-	public static By btn_cancel = By.id("toolbar-cancel");
+	public static By _btnNew = By.id("toolbar-new");
+	public static By _btnEdit = By.id("toolbar-edit");
+	public static By _btnPublish = By.id("toolbar-publish");
+	public static By _btnUnpublish = By.id("toolbar-unpublish");
+	public static By _btnArchive = By.id("toolbar-archive");
+	public static By _btnCheckin = By.id("toolbar-checkin");
+	public static By _btnTrash = By.id("toolbar-trash");
+	public static By _btnBatch = By.id("toolbar-batch");
+	public static By _btnOptions = By.id("toolbar-options");
+	public static By _btnHelp = By.id("toolbar-help");
+	public static By _btnRefresh = By.id("toolbar-refresh");
+	public static By _btnSave = By.id("toolbar-apply");
+	public static By _btnSaveAndClose = By.id("toolbar-save");
+	public static By _btnSaveAndNew = By.id("toolbar-save-new");
+	public static By _btnCancel = By.id("toolbar-cancel");
 
-	public static By txt_title = By.id("jform_title");
-	public static By txt_alias = By.id("jform_alias");
-	public static By txt_url = By.id("jform_url");
-	public static By txt_filter_search = By.id("filter_search");
-	public static By btn_search = By.xpath("//span[@class='icon-search']");
+	public static By _txtTitle = By.id("jform_title");
+	public static By _txtAlias = By.id("jform_alias");
+	public static By _txtUrl = By.id("jform_url");
+	public static By _txtFilterSearch = By.id("filter_search");
+	public static By _btnSearch = By.xpath("//span[@class='icon-search']");
 
 	public static By dropdownlist_Parent = By.xpath("//label[contains(text(),'Parent')]/../..//b");
 	public static By dropdownlist_Status = By.xpath("//label[contains(text(),'Status')]/../..//b");
@@ -134,63 +134,63 @@ public class GeneralPage {
 		BrowserHelper.driver.findElement(btn).click();
 	}
 	public static void createnew() {
-		BrowserHelper.driver.findElement(btn_new).click();
+		BrowserHelper.driver.findElement(_btnNew).click();
 	}
 
 	public static void edit() {
-		BrowserHelper.driver.findElement(btn_edit).click();
+		BrowserHelper.driver.findElement(_btnEdit).click();
 	}
 
 	public static void publish() {
-		BrowserHelper.driver.findElement(btn_publish).click();
+		BrowserHelper.driver.findElement(_btnPublish).click();
 	}
 
 	public static void unpublish() {
-		BrowserHelper.driver.findElement(btn_unpublish).click();
+		BrowserHelper.driver.findElement(_btnUnpublish).click();
 	}
 
 	public static void archive() {
-		BrowserHelper.driver.findElement(btn_archive).click();
+		BrowserHelper.driver.findElement(_btnArchive).click();
 	}
 
 	public static void checkin() {
-		BrowserHelper.driver.findElement(btn_checkin).click();
+		BrowserHelper.driver.findElement(_btnCheckin).click();
 	}
 
 	public static void trash() {
-		BrowserHelper.driver.findElement(btn_trash).click();
+		BrowserHelper.driver.findElement(_btnTrash).click();
 	}
 
 	public static void batch() {
-		BrowserHelper.driver.findElement(btn_batch).click();
+		BrowserHelper.driver.findElement(_btnBatch).click();
 	}
 
 	public static void options() {
-		BrowserHelper.driver.findElement(btn_options).click();
+		BrowserHelper.driver.findElement(_btnOptions).click();
 	}
 
 	public static void help() {
-		BrowserHelper.driver.findElement(btn_help).click();
+		BrowserHelper.driver.findElement(_btnHelp).click();
 	}
 
 	public static void rebuild() {
-		BrowserHelper.driver.findElement(btn_refresh).click();
+		BrowserHelper.driver.findElement(_btnRefresh).click();
 	}
 
 	public static void save() {
-		BrowserHelper.driver.findElement(btn_apply).click();
+		BrowserHelper.driver.findElement(_btnSave).click();
 	}
 
 	public static void saveAndClose() {
-		BrowserHelper.driver.findElement(btn_save).click();
+		BrowserHelper.driver.findElement(_btnSaveAndClose).click();
 	}
 
 	public static void saveAndNew() {
-		BrowserHelper.driver.findElement(btn_save_new).click();
+		BrowserHelper.driver.findElement(_btnSaveAndNew).click();
 	}
 
 	public static void cancel() {
-		BrowserHelper.driver.findElement(btn_cancel).click();
+		BrowserHelper.driver.findElement(_btnCancel).click();
 	}
 
 	public static void gotoHome() {
@@ -304,16 +304,16 @@ public class GeneralPage {
 	//check if an entry created
 	public static boolean checkCreationByTitle(String title) {
 
-		BrowserHelper.driver.findElement(GeneralPage.txt_filter_search).sendKeys(title);
-		BrowserHelper.driver.findElement(GeneralPage.btn_search).click();
+		BrowserHelper.driver.findElement(GeneralPage._txtFilterSearch).sendKeys(title);
+		BrowserHelper.driver.findElement(GeneralPage._btnSearch).click();
 		
 		String xpath = String.format("//table//a[contains(text(),'%s')]", title);
 		return BrowserHelper.driver.findElement(By.xpath(xpath)).isDisplayed();
 	}
 	public static void clickAnEntryWithTitle(String title) {
 		
-		BrowserHelper.driver.findElement(GeneralPage.txt_filter_search).sendKeys(title);
-		BrowserHelper.driver.findElement(GeneralPage.btn_search).click();
+		BrowserHelper.driver.findElement(GeneralPage._txtFilterSearch).sendKeys(title);
+		BrowserHelper.driver.findElement(GeneralPage._btnSearch).click();
 		
 		String xpath = String.format("//table//a[contains(text(),'%s')]", title);
 		BrowserHelper.driver.findElement(By.xpath(xpath)).click();
@@ -321,8 +321,8 @@ public class GeneralPage {
 	}
 	public static void selectCheckboxWithTitle(String title) {
 		
-		BrowserHelper.driver.findElement(GeneralPage.txt_filter_search).sendKeys(title);
-		BrowserHelper.driver.findElement(GeneralPage.btn_search).click();
+		BrowserHelper.driver.findElement(GeneralPage._txtFilterSearch).sendKeys(title);
+		BrowserHelper.driver.findElement(GeneralPage._btnSearch).click();
 		
 		String xpath = String.format("//table//a[contains(text(),'%s')]/../..//input", title);
 		if(!BrowserHelper.driver.findElement(By.xpath(xpath)).isSelected())
