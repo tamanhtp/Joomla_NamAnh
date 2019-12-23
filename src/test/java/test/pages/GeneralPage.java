@@ -116,10 +116,11 @@ public class GeneralPage {
 	private static By menu_Languages = By.xpath("//span[contains(text(),'Languages')]/..");
 	private static By menu_IntallExtensions = By.xpath("//span[contains(text(),'Intall Extensions')]/..");
 	// sub menu 
-	private static By submenu_WebLinks = By.xpath("//a[@class='dropdown-toggle menu-weblinks']");
-	private static By submenu_Banners = By.xpath("//a[@class='dropdown-toggle menu-banners']");
+	public static By _linkWebLinks = By.xpath("//a[@class='dropdown-toggle menu-weblinks']");
+	public static By _linkBanners = By.xpath("//a[@class='dropdown-toggle menu-banners']");
 
 	//alert message
+	
 	private static By mess_Saved = By.xpath("//div[@class='alert-message' and contains(text(),'saved')]");
 	private static By mess_Published = By.xpath("//div[@class='alert-message' and contains(text(),'published')]");
 	private static By mess_Trashed = By.xpath("//div[@class='alert-message' and contains(text(),'trashed')]");
@@ -130,10 +131,10 @@ public class GeneralPage {
 	private static By user_menu = By.xpath("//div[contains(text(),'User Menu')]");
 	private static By logout_menu = By.linkText("Logout");
 	
-	public static void click_button(By btn) {
+	public void click_button(By btn) {
 		BrowserHelper.driver.findElement(btn).click();
 	}
-	public static void createnew() {
+	public void clickBtnNew() {
 		BrowserHelper.driver.findElement(_btnNew).click();
 	}
 
@@ -177,15 +178,15 @@ public class GeneralPage {
 		BrowserHelper.driver.findElement(_btnRefresh).click();
 	}
 
-	public static void save() {
+	public void clickBtnSave() {
 		BrowserHelper.driver.findElement(_btnSave).click();
 	}
 
-	public static void saveAndClose() {
+	public void clickBtnSaveAndClose() {
 		BrowserHelper.driver.findElement(_btnSaveAndClose).click();
 	}
 
-	public static void saveAndNew() {
+	public static void clickSaveAndNew() {
 		BrowserHelper.driver.findElement(_btnSaveAndNew).click();
 	}
 
@@ -213,7 +214,7 @@ public class GeneralPage {
 		BrowserHelper.driver.findElement(menu_Content).click();
 	}
 
-	public static void clickComponents() {
+	public  void clickComponents() {
 		BrowserHelper.driver.findElement(menu_Components).click();
 	}
 
@@ -273,12 +274,12 @@ public class GeneralPage {
 		BrowserHelper.driver.findElement(menu_IntallExtensions).click();
 	}
 
-	public static void clickBanner() {
-		BrowserHelper.driver.findElement(submenu_Banners).click();
+	public  void clickBanner() {
+		BrowserHelper.driver.findElement(_linkBanners).click();
 	}
 
-	public static void clickWeblinks() {
-		BrowserHelper.driver.findElement(submenu_WebLinks).click();
+	public  void clickWeblinks() {
+		BrowserHelper.driver.findElement(_linkWebLinks).click();
 	}
 
 	//check after create an entry with alert message 
@@ -319,7 +320,7 @@ public class GeneralPage {
 		BrowserHelper.driver.findElement(By.xpath(xpath)).click();
 		
 	}
-	public static void selectCheckboxWithTitle(String title) {
+	public  void selectCheckboxWithTitle(String title) {
 		
 		BrowserHelper.driver.findElement(GeneralPage._txtFilterSearch).sendKeys(title);
 		BrowserHelper.driver.findElement(GeneralPage._btnSearch).click();
