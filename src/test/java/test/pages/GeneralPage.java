@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import test.utils.BrowserHelper;
 
 public class GeneralPage {
-
 	public By _btnNew = By.id("toolbar-new");
 	public By _btnEdit = By.id("toolbar-edit");
 	public By _btnPublish = By.id("toolbar-publish");
@@ -69,6 +68,7 @@ public class GeneralPage {
 	public By dropdownlist_ShowArticleOptions = By.xpath("//label[contains(text(),'Show Article Options')]/../..//b");
 	public By dropdownlist_AdministratorImagesandLinks = By.xpath("//label[contains(text(),'Administrator Images and Links')]/../..//b");
 	public By dropdownlist_FrontendImagesandLinks = By.xpath("//label[contains(text(),'Frontend Images and Links')]/../..//b");
+
 
 	// items in dropdownlist
 	public By status_Published = By.xpath("//li[text()='Published']");
@@ -144,15 +144,16 @@ public class GeneralPage {
 		BrowserHelper.driver.findElement(_btnEdit).click();
 	}
 
-	public void publish() {
+	public void clickBtnPublish() {
 		BrowserHelper.driver.findElement(_btnPublish).click();
 	}
 
-	public void unpublish() {
+	public void clickBtnUnpublish() {
 		BrowserHelper.driver.findElement(_btnUnpublish).click();
 	}
 
-	public void archive() {
+	public void clickBtnArchive() {
+
 		BrowserHelper.driver.findElement(_btnArchive).click();
 	}
 
@@ -160,7 +161,8 @@ public class GeneralPage {
 		BrowserHelper.driver.findElement(_btnCheckin).click();
 	}
 
-	public void trash() {
+	public void clickBtnTrash() {
+
 		BrowserHelper.driver.findElement(_btnTrash).click();
 	}
 
@@ -343,5 +345,10 @@ public class GeneralPage {
 		BrowserHelper.driver.findElement(user_menu).click();
 		BrowserHelper.driver.findElement(logout_menu).click();
 	}
-
+	
+	public void selectStatus(String status){
+		BrowserHelper.driver.findElement(_btnSearchTools).click();
+		BrowserHelper.driver.findElement(_divStatus).click();
+		BrowserHelper.driver.findElement(By.xpath(String.format(_liStatus, status))).click();
+	}
 }
