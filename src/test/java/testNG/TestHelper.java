@@ -39,7 +39,7 @@ public class TestHelper {
 
 	@AfterClass(description = "Close Browser")
 	public void afterMethod() {
-		//Log4j.info("Close Browser");
-		//BrowserHelper.quitDriver();
+		Log4j.info("Close Browser");
+		BrowserHelper.quitDriver();
 	}
 }
