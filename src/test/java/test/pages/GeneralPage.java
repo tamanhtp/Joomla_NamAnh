@@ -5,7 +5,9 @@ import org.openqa.selenium.By;
 import test.utils.BrowserHelper;
 
 public class GeneralPage {
-
+	private By _btnSearchTools = By.xpath("//button[normalize-space(text())='Search Tools']");
+	private By _divStatus = By.cssSelector("div[id^='filter_state']'");
+	private String _liStatus = "//div[contains(@id,'filter_state')]//li[text()='%s']";
 	public static By _btnNew = By.id("toolbar-new");
 	public static By _btnEdit = By.id("toolbar-edit");
 	public static By _btnPublish = By.id("toolbar-publish");
@@ -142,15 +144,15 @@ public class GeneralPage {
 		BrowserHelper.driver.findElement(_btnEdit).click();
 	}
 
-	public static void publish() {
+	public void clickBtnPublish() {
 		BrowserHelper.driver.findElement(_btnPublish).click();
 	}
 
-	public static void unpublish() {
+	public void clickBtnUnpublish() {
 		BrowserHelper.driver.findElement(_btnUnpublish).click();
 	}
 
-	public static void archive() {
+	public void clickBtnArchive() {
 		BrowserHelper.driver.findElement(_btnArchive).click();
 	}
 
@@ -158,7 +160,7 @@ public class GeneralPage {
 		BrowserHelper.driver.findElement(_btnCheckin).click();
 	}
 
-	public static void trash() {
+	public void clickBtnTrash() {
 		BrowserHelper.driver.findElement(_btnTrash).click();
 	}
 
@@ -338,5 +340,10 @@ public class GeneralPage {
 		BrowserHelper.driver.findElement(user_menu).click();
 		BrowserHelper.driver.findElement(logout_menu).click();
 	}
-
+	
+	public void selectStatus(String status){
+		BrowserHelper.driver.findElement(_btnSearchTools).click();
+		BrowserHelper.driver.findElement(_divStatus).click();
+		BrowserHelper.driver.findElement(By.xpath(String.format(_liStatus, status))).click();
+	}
 }
