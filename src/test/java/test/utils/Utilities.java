@@ -24,7 +24,7 @@ public class Utilities {
 	// WebDriver.findElement.click
 	public static void click(By by) {
 		BrowserHelper.driver.findElement(by).click();
-	}	
+	}
 	// WebDriver.findElement.clear
 	public static void clear(By by) {
 		BrowserHelper.driver.findElement(by).clear();
@@ -47,8 +47,7 @@ public class Utilities {
 	}
 	
 	
-
-	public static String faker_content() {
+	public static String getContent() {
 		return Constants.FAKER.address().fullAddress();
 	}
 

@@ -123,6 +123,16 @@ public class GeneralPage {
 	private static By user_menu = By.xpath("//div[contains(text(),'User Menu')]");
 	private static By logout_menu = By.linkText("Logout");
 	
+	private String _iconPublish = "//a[normalize-space(text())='%s']/../..//span[@class='icon-publish']";
+	private String _iconUnpublish = "//a[normalize-space(text())='%s']/../..//span[@class='icon-unpublish']";
+	
+	public boolean checkIconPublishDisplayed(String title) {
+		return BrowserHelper.driver.findElement(By.xpath(String.format(_iconPublish, title))).isDisplayed();
+	}
+	public boolean checkIconUnpublishDisplayed(String title) {
+		return BrowserHelper.driver.findElement(By.xpath(String.format(_iconUnpublish, title))).isDisplayed(); 
+	}
+	
 	public void click_button(By btn) {
 		BrowserHelper.driver.findElement(btn).click();
 	}
@@ -325,8 +335,10 @@ public class GeneralPage {
 		}
 	}
 	
-	//table//a[contains(text(),'A Many')]/../..//input
-	//logout from any page by menubar
+	//a[normalize-space(text())='A Time to Kill']
+	
+	
+	
 	public static void logout() {
 		BrowserHelper.driver.findElement(user_menu).click();
 		BrowserHelper.driver.findElement(logout_menu).click();
