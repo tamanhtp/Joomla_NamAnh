@@ -24,11 +24,7 @@ public class BannersPage extends GeneralPage{
 			Utilities.click(status);
 		}
 	
-	public static void goto_createNew() {
-		BannersPage.createnew();
-	}
-	
-	public static void gotoBanners() {
+	public  void goToBanners() {
 		BrowserHelper.driver.findElement(leftmenu_Banners).click();
 	}
 
@@ -36,7 +32,7 @@ public class BannersPage extends GeneralPage{
 		BrowserHelper.driver.findElement(leftmenu_Banners_Categories).click();
 	}
 
-	public static void gotoBannersClients() {
+	public void goToBannersClientsPage() {
 		BrowserHelper.driver.findElement(leftmenu_Banners_Clients).click();
 	}
 

@@ -33,6 +33,20 @@ public class Utilities {
 	public static String faker_title() {
 		return Constants.FAKER.book().title()+" - "+timer_hhmmss();
 	}
+	
+	public static String getName() {
+		return Constants.FAKER.address().firstName();
+	}
+	
+	public static String getContactName() {
+		return Constants.FAKER.address().lastName();
+	}
+	
+	public static String getContactEmail() {
+		return Constants.FAKER.internet().emailAddress();
+	}
+	
+	
 
 	public static String faker_content() {
 		return Constants.FAKER.address().fullAddress();

@@ -6,7 +6,7 @@ import org.testng.annotations.BeforeClass;
 import test.utils.BrowserHelper;
 import test.utils.Log4j;
 
-public class Default_TestNG_method {
+public class TestHelper {
 
 //	String browser = Constants.BROWSER;
 	@SuppressWarnings("unused")
@@ -32,14 +32,14 @@ public class Default_TestNG_method {
 //		}
 
 		BrowserHelper dc = new BrowserHelper();
-		BrowserHelper.usingChrome();
+//		BrowserHelper.usingChrome();
 		Log4j.info("Launch Browser and open Administrator page");
 		BrowserHelper.openAdministrator();
 	}
 
 	@AfterClass(description = "Close Browser")
 	public void afterMethod() {
-		Log4j.info("Close Browser");
-		BrowserHelper.quitDriver();
+		//Log4j.info("Close Browser");
+		//BrowserHelper.quitDriver();
 	}
 }
