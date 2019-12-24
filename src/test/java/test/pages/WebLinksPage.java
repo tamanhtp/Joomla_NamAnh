@@ -2,7 +2,7 @@ package test.pages;
 
 import org.openqa.selenium.By;
 
-import test.utils.BrowserHelper;
+import test.utils.Constants;
 
 public class WebLinksPage extends GeneralPage{
 
@@ -19,26 +19,26 @@ public class WebLinksPage extends GeneralPage{
 
 	// left menu of Weblinks
 	public static void gotoWeblinks() {
-		BrowserHelper.driver.findElement(leftmenu_WebLinks).click();
+		Constants.DRIVER.findElement(leftmenu_WebLinks).click();
 	}
 
 	public static void gotoWeblinksCategories() {
-		BrowserHelper.driver.findElement(leftmenu_WebLinks_Categories).click();
+		Constants.DRIVER.findElement(leftmenu_WebLinks_Categories).click();
 	}
 
 	public static void gotoWeblinksFields() {
-		BrowserHelper.driver.findElement(leftmenu_WebLinks_Fields).click();
+		Constants.DRIVER.findElement(leftmenu_WebLinks_Fields).click();
 	}
 
 	public static void gotoWeblinksFieldGroups() {
-		BrowserHelper.driver.findElement(leftmenu_WebLinks_FieldGroup).click();
+		Constants.DRIVER.findElement(leftmenu_WebLinks_FieldGroup).click();
 	}
 	public void selectStatus(String status){
-		BrowserHelper.driver.findElement(_divStatus_Weblinks).click();
-		BrowserHelper.driver.findElement(By.xpath(String.format(_liStatus, status))).click();
+		Constants.DRIVER.findElement(_divStatus_Weblinks).click();
+		Constants.DRIVER.findElement(By.xpath(String.format(_liStatus, status))).click();
 	}
 	public void clickBtnSearchTools() throws InterruptedException{
-		BrowserHelper.driver.findElement(_btnSearchTools).click();
+		Constants.DRIVER.findElement(_btnSearchTools).click();
 		Thread.sleep(1000);
 	}
 	

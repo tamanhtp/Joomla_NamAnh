@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import test.utils.BrowserHelper;
+import test.utils.Constants;
 
 public class GeneralPage {
 	private By _btnSearchTools = By.xpath("//button[normalize-space(text())='Search Tools']");
@@ -134,240 +134,240 @@ public class GeneralPage {
 	private String _iconUnpublish = "//a[normalize-space(text())='%s']/../..//span[@class='icon-unpublish']";
 	
 	public boolean checkIconPublishDisplayed(String title) {
-		return BrowserHelper.driver.findElement(By.xpath(String.format(_iconPublish, title))).isDisplayed();
+		return Constants.DRIVER.findElement(By.xpath(String.format(_iconPublish, title))).isDisplayed();
 	}
 	public boolean checkIconUnpublishDisplayed(String title) {
-		return BrowserHelper.driver.findElement(By.xpath(String.format(_iconUnpublish, title))).isDisplayed(); 
+		return Constants.DRIVER.findElement(By.xpath(String.format(_iconUnpublish, title))).isDisplayed(); 
 	}
 	
 	public void click_button(By btn) {
-		BrowserHelper.driver.findElement(btn).click();
+		Constants.DRIVER.findElement(btn).click();
 	}
 	public void clickBtnNew() {
-		BrowserHelper.driver.findElement(_btnNew).click();
+		Constants.DRIVER.findElement(_btnNew).click();
 	}
 
 	public void edit() {
-		BrowserHelper.driver.findElement(_btnEdit).click();
+		Constants.DRIVER.findElement(_btnEdit).click();
 	}
 
 	public void clickBtnPublish() {
-		BrowserHelper.driver.findElement(_btnPublish).click();
+		Constants.DRIVER.findElement(_btnPublish).click();
 	}
 
 	public void clickBtnUnpublish() {
-		BrowserHelper.driver.findElement(_btnUnpublish).click();
+		Constants.DRIVER.findElement(_btnUnpublish).click();
 	}
 
 	public void clickBtnArchive() {
 
-		BrowserHelper.driver.findElement(_btnArchive).click();
+		Constants.DRIVER.findElement(_btnArchive).click();
 	}
 
 	public void checkin() {
-		BrowserHelper.driver.findElement(_btnCheckin).click();
+		Constants.DRIVER.findElement(_btnCheckin).click();
 	}
 
 	public void clickBtnTrash() {
 
-		BrowserHelper.driver.findElement(_btnTrash).click();
+		Constants.DRIVER.findElement(_btnTrash).click();
 	}
 
 	public void batch() {
-		BrowserHelper.driver.findElement(_btnBatch).click();
+		Constants.DRIVER.findElement(_btnBatch).click();
 	}
 
 	public void options() {
-		BrowserHelper.driver.findElement(_btnOptions).click();
+		Constants.DRIVER.findElement(_btnOptions).click();
 	}
 
 	public void help() {
-		BrowserHelper.driver.findElement(_btnHelp).click();
+		Constants.DRIVER.findElement(_btnHelp).click();
 	}
 
 	public void rebuild() {
-		BrowserHelper.driver.findElement(_btnRefresh).click();
+		Constants.DRIVER.findElement(_btnRefresh).click();
 	}
 
 	public void clickBtnSave() {
-		BrowserHelper.driver.findElement(_btnSave).click();
+		Constants.DRIVER.findElement(_btnSave).click();
 	}
 
 	public void clickBtnSaveAndClose() {
-		BrowserHelper.driver.findElement(_btnSaveAndClose).click();
+		Constants.DRIVER.findElement(_btnSaveAndClose).click();
 	}
 
 	public void clickSaveAndNew() {
-		BrowserHelper.driver.findElement(_btnSaveAndNew).click();
+		Constants.DRIVER.findElement(_btnSaveAndNew).click();
 	}
 
 	public void cancel() {
-		BrowserHelper.driver.findElement(_btnCancel).click();
+		Constants.DRIVER.findElement(_btnCancel).click();
 	}
 
 	public void gotoHome() {
-		BrowserHelper.driver.findElement(menu_ControlPanel).click();
+		Constants.DRIVER.findElement(menu_ControlPanel).click();
 	}
 
 	public void gotoSystem() {
-		BrowserHelper.driver.findElement(menu_System).click();
+		Constants.DRIVER.findElement(menu_System).click();
 	}
 
 	public void clickUsers() {
-		BrowserHelper.driver.findElement(menu_Users).click();
+		Constants.DRIVER.findElement(menu_Users).click();
 	}
 
 	public void clickMenus() {
-		BrowserHelper.driver.findElement(menu_Menus).click();
+		Constants.DRIVER.findElement(menu_Menus).click();
 	}
 
 	public void clickContent() {
-		BrowserHelper.driver.findElement(menu_Content).click();
+		Constants.DRIVER.findElement(menu_Content).click();
 	}
 
 	public void clickComponents() {
-		BrowserHelper.driver.findElement(menu_Components).click();
+		Constants.DRIVER.findElement(menu_Components).click();
 	}
 
 	public void clickExtensions() {
-		BrowserHelper.driver.findElement(menu_Extensions).click();
+		Constants.DRIVER.findElement(menu_Extensions).click();
 	}
 
 	public void clickHelp() {
-		BrowserHelper.driver.findElement(menu_Help).click();
+		Constants.DRIVER.findElement(menu_Help).click();
 	}
 
 	public void gotoNewArticle() {
-		BrowserHelper.driver.findElement(menu_NewArticle).click();
+		Constants.DRIVER.findElement(menu_NewArticle).click();
 	}
 
 	public void gotoArticles() {
-		BrowserHelper.driver.findElement(menu_Articles).click();
+		Constants.DRIVER.findElement(menu_Articles).click();
 	}
 
 	public void gotoCategories() {
-		BrowserHelper.driver.findElement(menu_Categories).click();
+		Constants.DRIVER.findElement(menu_Categories).click();
 	}
 
 	public void gotoMedia() {
-		BrowserHelper.driver.findElement(menu_Media).click();
+		Constants.DRIVER.findElement(menu_Media).click();
 	}
 
 	public void gotoMenus_menubar() {
-		BrowserHelper.driver.findElement(menu_Menu_s).click();
+		Constants.DRIVER.findElement(menu_Menu_s).click();
 	}
 
 	public void gotoModules() {
-		BrowserHelper.driver.findElement(menu_Modules).click();
+		Constants.DRIVER.findElement(menu_Modules).click();
 	}
 
 	public void gotoUsers() {
-		BrowserHelper.driver.findElement(menu_Users).click();
+		Constants.DRIVER.findElement(menu_Users).click();
 	}
 
 	public void gotoNoUrgent() {
-		BrowserHelper.driver.findElement(menu_NoUrgentRequests).click();
+		Constants.DRIVER.findElement(menu_NoUrgentRequests).click();
 	}
 
 	public void gotoGlobal() {
-		BrowserHelper.driver.findElement(menu_Global).click();
+		Constants.DRIVER.findElement(menu_Global).click();
 	}
 
 	public void gotoTemplates() {
-		BrowserHelper.driver.findElement(menu_Templates).click();
+		Constants.DRIVER.findElement(menu_Templates).click();
 	}
 
 	public void gotoLanguage() {
-		BrowserHelper.driver.findElement(menu_Languages).click();
+		Constants.DRIVER.findElement(menu_Languages).click();
 	}
 
 	public void gotoIntallExtensions() {
-		BrowserHelper.driver.findElement(menu_IntallExtensions).click();
+		Constants.DRIVER.findElement(menu_IntallExtensions).click();
 	}
 
 	public void clickBanner() {
-		BrowserHelper.driver.findElement(_linkBanners).click();
+		Constants.DRIVER.findElement(_linkBanners).click();
 	}
 
 	public void clickWeblinks() {
-		BrowserHelper.driver.findElement(_linkWebLinks).click();
+		Constants.DRIVER.findElement(_linkWebLinks).click();
 	}
 
 	//check after create an entry with alert message 
 	public boolean checkSaved() {
-		return BrowserHelper.driver.findElement(mess_Saved).isDisplayed();
+		return Constants.DRIVER.findElement(mess_Saved).isDisplayed();
 	}
 	public boolean checkPublished() {
-		return BrowserHelper.driver.findElement(mess_Published).isDisplayed();
+		return Constants.DRIVER.findElement(mess_Published).isDisplayed();
 	}
 	public boolean checkTrashed() {
-		return BrowserHelper.driver.findElement(mess_Trashed).isDisplayed();
+		return Constants.DRIVER.findElement(mess_Trashed).isDisplayed();
 	}
 	public boolean checkArchived() {
-		return BrowserHelper.driver.findElement(mess_Archived).isDisplayed();
+		return Constants.DRIVER.findElement(mess_Archived).isDisplayed();
 	}
 	public  boolean checkCheckedin() {
-		return BrowserHelper.driver.findElement(mess_Checkedin).isDisplayed();
+		return Constants.DRIVER.findElement(mess_Checkedin).isDisplayed();
 	}
 	public boolean checkUnpublished() {
-		return BrowserHelper.driver.findElement(mess_Unpublished).isDisplayed();
+		return Constants.DRIVER.findElement(mess_Unpublished).isDisplayed();
 	}
 	
 	//check if an entry created
 	public boolean checkCreationByTitle(String title) {
-		BrowserHelper.driver.findElement(_txtFilterSearch).clear();
-		BrowserHelper.driver.findElement(_txtFilterSearch).sendKeys(title);
-		BrowserHelper.driver.findElement(_btnSearch).click();
+		Constants.DRIVER.findElement(_txtFilterSearch).clear();
+		Constants.DRIVER.findElement(_txtFilterSearch).sendKeys(title);
+		Constants.DRIVER.findElement(_btnSearch).click();
 		
 		String xpath = String.format("//table//a[contains(text(),'%s')]", title);
-		return BrowserHelper.driver.findElement(By.xpath(xpath)).isDisplayed();
+		return Constants.DRIVER.findElement(By.xpath(xpath)).isDisplayed();
 	}
 	public void clickAnEntryWithTitle(String title) {
 		
-		BrowserHelper.driver.findElement(_txtFilterSearch).sendKeys(title);
-		BrowserHelper.driver.findElement(_btnSearch).click();
+		Constants.DRIVER.findElement(_txtFilterSearch).sendKeys(title);
+		Constants.DRIVER.findElement(_btnSearch).click();
 		
 		String xpath = String.format("//table//a[contains(text(),'%s')]", title);
-		BrowserHelper.driver.findElement(By.xpath(xpath)).click();
+		Constants.DRIVER.findElement(By.xpath(xpath)).click();
 		
 	}
 	public void selectCheckboxWithTitle(String title) {
 		
-		BrowserHelper.driver.findElement(_txtFilterSearch).clear();
-		BrowserHelper.driver.findElement(_txtFilterSearch).sendKeys(title);
-		BrowserHelper.driver.findElement(_btnSearch).click();
+		Constants.DRIVER.findElement(_txtFilterSearch).clear();
+		Constants.DRIVER.findElement(_txtFilterSearch).sendKeys(title);
+		Constants.DRIVER.findElement(_btnSearch).click();
 		
 		String xpath = String.format("//table//a[contains(text(),'%s')]/../..//input", title);
-		if(!BrowserHelper.driver.findElement(By.xpath(xpath)).isSelected())
+		if(!Constants.DRIVER.findElement(By.xpath(xpath)).isSelected())
 		{
-			BrowserHelper.driver.findElement(By.xpath(xpath)).click();
+			Constants.DRIVER.findElement(By.xpath(xpath)).click();
 		}
 	}
 	
 	//a[normalize-space(text())='A Time to Kill']
 	
 	public void waitForFilter(int seconds){
-		WebDriverWait wait = new WebDriverWait(BrowserHelper.driver, seconds);
+		WebDriverWait wait = new WebDriverWait(Constants.DRIVER, seconds);
 		wait.until(ExpectedConditions.visibilityOfElementLocated
 		              (_divFilter));
 	}
 	
 	public static void logout() {
-		BrowserHelper.driver.findElement(user_menu).click();
-		BrowserHelper.driver.findElement(logout_menu).click();
+		Constants.DRIVER.findElement(user_menu).click();
+		Constants.DRIVER.findElement(logout_menu).click();
 	}
 	
 	public void clickBtnSearchTools() throws InterruptedException{
-		BrowserHelper.driver.findElement(_btnSearchTools).click();
+		Constants.DRIVER.findElement(_btnSearchTools).click();
 		Thread.sleep(1000);
 	}
 	
 	public void clickBtnClear(){
-		BrowserHelper.driver.findElement(_btnClear).click();
+		Constants.DRIVER.findElement(_btnClear).click();
 	}
 	
 	public void selectStatus(String status){
-		BrowserHelper.driver.findElement(_divStatus).click();
-		BrowserHelper.driver.findElement(By.xpath(String.format(_liStatus, status))).click();
+		Constants.DRIVER.findElement(_divStatus).click();
+		Constants.DRIVER.findElement(By.xpath(String.format(_liStatus, status))).click();
 	}
 }
