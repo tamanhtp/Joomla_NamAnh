@@ -70,5 +70,7 @@ public class TC_JOOMLA_BANNERS_CLIENTS_006 extends TestHelper{
 		//VP 3.Client is sent to trash
 		boolean temp1 = bannersClientsPage.checkElelementExists(titleName);
 		assertTrue(temp1, "Element is not exist");
+		
+		bannersClientsPage.clearData();
   }
 }

@@ -6,6 +6,7 @@ import test.utils.Constants;
 
 public class BannersClientsPage extends GeneralPage {
 	private String _inputCheck = "//td//a[normalize-space(text())='%s']//ancestor::tr//input";
+	private String _inputCheclAll = "//th//a[normalize-space(text())='Status']/ancestor::tr/th/input";
 	private String _clientName = "//td//a[normalize-space(text())='%s']";
 	private String _boxName = "//td//a[normalize-space(text())='%s']//ancestor::tr//span[@class='icon-%s']";
 	private By _divMessage = By
@@ -18,6 +19,8 @@ public class BannersClientsPage extends GeneralPage {
 			.xpath("//button[normalize-space(text())='Clear']");
 	private By _btnNew = By.id("toolbar-new");
 	private By _btnPublish = By.id("toolbar-publish");
+	private By _btnTrash = By.id("toolbar-trash");
+	private By _btnEmptyTrash = By.id("toolbar-delete");
 
 	public void clickBtnNew() {
 		Constants.DRIVER.findElement(_btnNew).click();
@@ -25,6 +28,20 @@ public class BannersClientsPage extends GeneralPage {
 
 	public void clickBtnPublish() {
 		Constants.DRIVER.findElement(_btnPublish).click();
+	}
+
+	public void clearData() throws InterruptedException {
+		this.clickBtnClear();
+		this.clickBtnSearchTools();
+		this.selectStatus("All");
+		Constants.DRIVER.findElement(By.xpath(_inputCheclAll)).click();
+		Constants.DRIVER.findElement(_btnTrash).click();
+		this.clickBtnClear();
+		this.clickBtnSearchTools();
+		this.selectStatus("Trashed");
+		Constants.DRIVER.findElement(By.xpath(_inputCheclAll)).click();
+		Constants.DRIVER.findElement(_btnEmptyTrash).click();
+		Constants.DRIVER.switchTo().alert().accept();
 	}
 
 	public void checkClients(String title) {
@@ -43,8 +60,9 @@ public class BannersClientsPage extends GeneralPage {
 
 	public void selectStatus(String status) {
 		Constants.DRIVER.findElement(_divStatus).click();
-		Constants.DRIVER.findElement(
-				By.xpath(String.format(_liStatus, status))).click();
+		Constants.DRIVER
+				.findElement(By.xpath(String.format(_liStatus, status)))
+				.click();
 	}
 
 	public String getMessageText() {

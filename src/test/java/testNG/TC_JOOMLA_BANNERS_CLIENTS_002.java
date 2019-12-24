@@ -25,7 +25,7 @@ public class TC_JOOMLA_BANNERS_CLIENTS_002 extends TestHelper {
 	String titleName1 = Utilities.getName();
 
 	@Test(description = "TC_JOOMLA_BANNERS_CLIENTS_002-Verify that user can edit a client")
-	public void f() {
+	public void f() throws InterruptedException {
 		Log4j.info("Step 1. Login");
 		LoginPage.login(Constants.LOGIN_USERNAME, Constants.LOGIN_PASSWORD);
 
@@ -67,5 +67,7 @@ public class TC_JOOMLA_BANNERS_CLIENTS_002 extends TestHelper {
 				"Message client saved should be displayed");
 		boolean temp = bannersClientsPage.checkElelementExists(titleName1);
 		assertTrue(temp, "Element is not exist");
+		
+		bannersClientsPage.clearData();
 	}
 }
