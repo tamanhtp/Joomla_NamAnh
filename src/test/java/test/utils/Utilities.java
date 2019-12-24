@@ -19,34 +19,36 @@ public class Utilities {
 
 	// WebDriver.findElement.Sendkeys
 	public static void sendkeys(By by, String text) {
-			BrowserHelper.driver.findElement(by).sendKeys(text);
+		BrowserHelper.driver.findElement(by).sendKeys(text);
 	}
+
 	// WebDriver.findElement.click
 	public static void click(By by) {
 		BrowserHelper.driver.findElement(by).click();
 	}
+
 	// WebDriver.findElement.clear
 	public static void clear(By by) {
 		BrowserHelper.driver.findElement(by).clear();
 	}
+
 	// FAKER
 	public static String faker_title() {
-		return Constants.FAKER.book().title()+" - "+timer_hhmmss();
+		return Constants.FAKER.book().title() + " - " + timer_hhmmss();
 	}
-	
+
 	public static String getName() {
 		return Constants.FAKER.address().firstName();
 	}
-	
+
 	public static String getContactName() {
 		return Constants.FAKER.address().lastName();
 	}
-	
+
 	public static String getContactEmail() {
 		return Constants.FAKER.internet().emailAddress();
 	}
-	
-	
+
 	public static String getContent() {
 		return Constants.FAKER.address().fullAddress();
 	}
@@ -57,8 +59,8 @@ public class Utilities {
 		String result = dtf.format(now);
 		return result;
 	}
-	public static String string_format(String xpath, String variable) {
 
+	public static String string_format(String xpath, String variable) {
 		return String.format(xpath, variable);
 	}
 }

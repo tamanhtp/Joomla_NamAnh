@@ -22,7 +22,7 @@ public class TC_JOOMLA_BANNERS_CLIENTS_005 extends TestHelper{
 	String titleName = Utilities.getName();
 	
   @Test
-  public void f() {
+  public void f() throws InterruptedException {
 	  Log4j.info("Step 1. Login");
 		LoginPage.login(Constants.LOGIN_USERNAME, Constants.LOGIN_PASSWORD);
 
@@ -42,7 +42,7 @@ public class TC_JOOMLA_BANNERS_CLIENTS_005 extends TestHelper{
 		Log4j.info("Step 6. Click save and close");
 		bannersNewClientsPage.clickBtnSaveAndClose();
 
-		// VP 1. A message : "Client successfully saved" shows and new client is created
+		//VP1. A message : "Client successfully saved" shows and new client is created
 		String messageActual = bannersClientsPage.getMessageText();
 		String messageExpected = "Client saved.";
 		assertEquals(messageActual, messageExpected,
@@ -56,15 +56,19 @@ public class TC_JOOMLA_BANNERS_CLIENTS_005 extends TestHelper{
 		Log4j.info("Step 8. Click Archive button");
 		bannersClientsPage.clickBtnArchive();
 
-		// VP 2.A message : "1 client successfully archived" shows
+		//VP2.A message : "1 client successfully archived" shows
 		String messageActual1 = bannersClientsPage.getMessageText();
 		String messageExpected1 = "1 client archived.";
 		assertEquals(messageActual1, messageExpected1,
 				"Message 1 client archived should be displayed");
 		
+		Log4j.info("Step 9. Select Archive in Status dropdown list");
+		bannersClientsPage.clickBtnClear();
+		bannersClientsPage.clickBtnSearchTools();
+		bannersClientsPage.selectStatus("Archived");
 		
-		
-		
-		
+		//VP 3.Client is archived
+		boolean temp1 = bannersClientsPage.checkElelementExists(titleName);
+		assertTrue(temp1, "Element is not exist");	
   }
 }

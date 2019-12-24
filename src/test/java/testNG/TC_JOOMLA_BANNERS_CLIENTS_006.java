@@ -22,7 +22,7 @@ public class TC_JOOMLA_BANNERS_CLIENTS_006 extends TestHelper{
 	String titleName = Utilities.getName();
 	
   @Test
-  public void f() {
+  public void f() throws InterruptedException {
 	  Log4j.info("Step 1. Login");
 		LoginPage.login(Constants.LOGIN_USERNAME, Constants.LOGIN_PASSWORD);
 
@@ -61,5 +61,14 @@ public class TC_JOOMLA_BANNERS_CLIENTS_006 extends TestHelper{
 		String messageExpected1 = "1 client trashed.";
 		assertEquals(messageActual1, messageExpected1,
 				"Message 1 client trashed should be displayed");
+		
+		Log4j.info("Step 9. Select Trashed in Status dropdown list");
+		bannersClientsPage.clickBtnClear();
+		bannersClientsPage.clickBtnSearchTools();
+		bannersClientsPage.selectStatus("Trashed");
+		
+		//VP 3.Client is sent to trash
+		boolean temp1 = bannersClientsPage.checkElelementExists(titleName);
+		assertTrue(temp1, "Element is not exist");
   }
 }
