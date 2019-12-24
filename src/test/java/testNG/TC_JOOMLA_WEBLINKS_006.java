@@ -1,5 +1,7 @@
 package testNG;
 
+import static org.testng.Assert.assertEquals;
+
 import org.testng.annotations.Test;
 
 import test.pages.HomePage;
@@ -50,13 +52,13 @@ public class TC_JOOMLA_WEBLINKS_006 extends TestHelper {
 
 		Log4j.info("Step 7. Check on the recently added weblink's checkbox");
 		webLinksPage.selectCheckboxWithTitle(title);
-//		assertEquals(webLinksPage.checkCheckinIconbyTitle(title), true);
+		assertEquals(webLinksPage.checkCheckinIconbyTitle(title), true);
 		
 		Log4j.info("Step 8. Click on 'Check In' icon of the top right toolbar");
 		webLinksPage.click_button(webLinksPage._btnCheckin);
 				
 		Log4j.info("Step 9. Verify the weblink is checked in successfully");
-//		assertEquals(webLinksPage.checkCheckinIconbyTitle(title), false);
+		assertEquals(webLinksPage.checkCheckinIconbyTitle(title), false);
 		
 		
 //		Log4j.info("Logout");

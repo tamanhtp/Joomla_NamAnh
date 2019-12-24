@@ -133,6 +133,8 @@ public class GeneralPage {
 	private String _iconPublish = "//a[normalize-space(text())='%s']/../..//span[@class='icon-publish']";
 	private String _iconUnpublish = "//a[normalize-space(text())='%s']/../..//span[@class='icon-unpublish']";
 	
+	
+	
 	public boolean checkIconPublishDisplayed(String title) {
 		return Constants.DRIVER.findElement(By.xpath(String.format(_iconPublish, title))).isDisplayed();
 	}
@@ -322,6 +324,17 @@ public class GeneralPage {
 		String xpath = String.format("//table//a[contains(text(),'%s')]", title);
 		return Constants.DRIVER.findElement(By.xpath(xpath)).isDisplayed();
 	}
+	
+	public boolean checkCheckinIconbyTitle(String title) {
+		Constants.DRIVER.findElement(_txtFilterSearch).clear();
+		Constants.DRIVER.findElement(_txtFilterSearch).sendKeys(title);
+		Constants.DRIVER.findElement(_btnSearch).click();
+		
+		String xpath = String.format("//a[normalize-space(text())='%s']/..//span[@class=\"icon-checkedout\"]", title);
+		return Constants.DRIVER.findElement(By.xpath(xpath)).isDisplayed();
+	}
+	
+	
 	public void clickAnEntryWithTitle(String title) {
 		
 		Constants.DRIVER.findElement(_txtFilterSearch).sendKeys(title);
