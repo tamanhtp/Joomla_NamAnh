@@ -22,7 +22,7 @@ public class TC_JOOMLA_BANNERS_CLIENTS_003 extends TestHelper {
 	String titleName = Utilities.getName();
 
 	@Test(description = "TC_JOOMLA_BANNERS_CLIENTS_003-Verify that user can publish a client")
-	public void f() {
+	public void f() throws InterruptedException {
 		Log4j.info("Step 1. Login");
 		LoginPage.login(Constants.LOGIN_USERNAME, Constants.LOGIN_PASSWORD);
 
@@ -65,5 +65,7 @@ public class TC_JOOMLA_BANNERS_CLIENTS_003 extends TestHelper {
 		boolean temp1 = bannersClientsPage.checkElementStatus(titleName,
 				"publish");
 		assertTrue(temp1, "Element does not exist");
+		
+		bannersClientsPage.clearData();
 	}
 }
