@@ -1,13 +1,20 @@
 package test.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import test.utils.BrowserHelper;
 
 public class GeneralPage {
+	private By _btnSearchTools = By.xpath("//button[normalize-space(text())='Search Tools']");
+	private By _divStatus = By.xpath("//select[@id='filter_state']/../div");
+	private By _btnClear = By.xpath("//button[normalize-space(text())='Clear']");
+	private By _divFilter = By.xpath("div[class^='js-stools-container-filters']");
+	private String _liStatus = "//div[contains(@id,'filter_state')]//li[text()='%s']";
 	public By _btnNew = By.id("toolbar-new");
 	public By _btnEdit = By.id("toolbar-edit");
-	public By _btnPublish = By.id("toolbar-publish");
+	public By _btnPublish = By.id("toolbsar-publish");
 	public By _btnUnpublish = By.id("toolbar-unpublish");
 	public By _btnArchive = By.id("toolbar-archive");
 	public By _btnCheckin = By.id("toolbar-checkin");
@@ -339,15 +346,27 @@ public class GeneralPage {
 	
 	//a[normalize-space(text())='A Time to Kill']
 	
-	
+	public void waitForFilter(int seconds){
+		WebDriverWait wait = new WebDriverWait(BrowserHelper.driver, seconds);
+		wait.until(ExpectedConditions.visibilityOfElementLocated
+		              (_divFilter));
+	}
 	
 	public static void logout() {
 		BrowserHelper.driver.findElement(user_menu).click();
 		BrowserHelper.driver.findElement(logout_menu).click();
 	}
 	
-	public void selectStatus(String status){
+	public void clickBtnSearchTools() throws InterruptedException{
 		BrowserHelper.driver.findElement(_btnSearchTools).click();
+		Thread.sleep(1000);
+	}
+	
+	public void clickBtnClear(){
+		BrowserHelper.driver.findElement(_btnClear).click();
+	}
+	
+	public void selectStatus(String status){
 		BrowserHelper.driver.findElement(_divStatus).click();
 		BrowserHelper.driver.findElement(By.xpath(String.format(_liStatus, status))).click();
 	}
