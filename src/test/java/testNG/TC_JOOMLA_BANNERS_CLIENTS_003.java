@@ -21,7 +21,7 @@ public class TC_JOOMLA_BANNERS_CLIENTS_003 extends TestHelper {
 	BannersNewClientsPage bannersNewClientsPage = new BannersNewClientsPage();
 	String titleName = Utilities.getName();
 
-	@Test
+	@Test(description = "TC_JOOMLA_BANNERS_CLIENTS_003-Verify that user can publish a client")
 	public void f() {
 		Log4j.info("Step 1. Login");
 		LoginPage.login(Constants.LOGIN_USERNAME, Constants.LOGIN_PASSWORD);

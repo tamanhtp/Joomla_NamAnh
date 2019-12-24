@@ -2,44 +2,33 @@ package testNG;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 
 import test.utils.BrowserHelper;
+import test.utils.Constants;
 import test.utils.Log4j;
 
 public class TestHelper {
 
-//	String browser = Constants.BROWSER;
-	@SuppressWarnings("unused")
-	@BeforeClass(description = "Launch latest Chrome >> goto Administrator page")
-	public void beforeMethod() {
-		
-//		switch (browser) {
-//		case "chrome":
-//			BrowserHelper.usingChrome();
-//			break;
-//		case "firefox":
-//			BrowserHelper.usingFirefox();
-//			break;
-//		case "ie":
-//			BrowserHelper.usingIE();
-//			break;
-//		case "edge":
-//			BrowserHelper.usingEDGE();
-//			break;
-//		default:
-//			BrowserHelper.usingChrome();
-//			break;
-//		}
+	@BeforeClass
+	@Parameters("browser")
+	public void beforeClass(String browser) {
+		if (browser.equals("firefox")) {
+			BrowserHelper.openFirefoxBrowser(Constants.URL_ADMINISTRATOR);
+		}
 
-		BrowserHelper dc = new BrowserHelper();
-//		BrowserHelper.usingChrome();
-		Log4j.info("Launch Browser and open Administrator page");
-		BrowserHelper.openAdministrator();
+		else if (browser.equals("chrome")) {
+			BrowserHelper.openChromeBrowser(Constants.URL_ADMINISTRATOR);
+		}
+
+		else if (browser.equals("ie")) {
+			BrowserHelper.openIeBrowser(Constants.URL_ADMINISTRATOR);
+		}
 	}
-
-	@AfterClass(description = "Close Browser")
-	public void afterMethod() {
+	
+	@AfterClass
+	public void afterClass() {
 		Log4j.info("Close Browser");
-		BrowserHelper.quitDriver();
+		Constants.DRIVER.quit();
 	}
 }

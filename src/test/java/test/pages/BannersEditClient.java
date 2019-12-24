@@ -2,7 +2,7 @@ package test.pages;
 
 import org.openqa.selenium.By;
 
-import test.utils.BrowserHelper;
+import test.utils.Constants;
 
 public class BannersEditClient extends GeneralPage {
 	private By _txtName = By.id("jform_name");
@@ -15,20 +15,20 @@ public class BannersEditClient extends GeneralPage {
 
 	public void updateNewClientForm(String name, String contactName,
 			String contactEmail) {
-		BrowserHelper.driver.findElement(_txtName).clear();
-		BrowserHelper.driver.findElement(_txtName).sendKeys(name);
-		BrowserHelper.driver.findElement(_txtContact).clear();
-		BrowserHelper.driver.findElement(_txtContact).sendKeys(contactName);
-		BrowserHelper.driver.findElement(_txtEmail).clear();
-		BrowserHelper.driver.findElement(_txtEmail).sendKeys(contactEmail);
+		Constants.DRIVER.findElement(_txtName).clear();
+		Constants.DRIVER.findElement(_txtName).sendKeys(name);
+		Constants.DRIVER.findElement(_txtContact).clear();
+		Constants.DRIVER.findElement(_txtContact).sendKeys(contactName);
+		Constants.DRIVER.findElement(_txtEmail).clear();
+		Constants.DRIVER.findElement(_txtEmail).sendKeys(contactEmail);
 	}
 
 	public String getMessageText() {
-		return BrowserHelper.driver.findElement(_divMessage).getText();
+		return Constants.DRIVER.findElement(_divMessage).getText();
 	}
 
 	public boolean chekEditPageDisplays() {
-		boolean temp = BrowserHelper.driver.findElements(_title).size() == 1;
+		boolean temp = Constants.DRIVER.findElements(_title).size() == 1;
 		return temp;
 	}
 }

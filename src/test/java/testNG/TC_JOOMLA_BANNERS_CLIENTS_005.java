@@ -21,7 +21,7 @@ public class TC_JOOMLA_BANNERS_CLIENTS_005 extends TestHelper{
 	BannersNewClientsPage bannersNewClientsPage = new BannersNewClientsPage();
 	String titleName = Utilities.getName();
 	
-  @Test
+  @Test(description = "TC_JOOMLA_BANNERS_CLIENTS_005-Verify that user can archive a client")
   public void f() throws InterruptedException {
 	  Log4j.info("Step 1. Login");
 		LoginPage.login(Constants.LOGIN_USERNAME, Constants.LOGIN_PASSWORD);
