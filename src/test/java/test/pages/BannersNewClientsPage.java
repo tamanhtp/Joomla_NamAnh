@@ -2,7 +2,7 @@ package test.pages;
 
 import org.openqa.selenium.By;
 
-import test.utils.BrowserHelper;
+import test.utils.Constants;
 
 public class BannersNewClientsPage extends GeneralPage {
 	private By _txtName = By.id("jform_name");
@@ -16,26 +16,26 @@ public class BannersNewClientsPage extends GeneralPage {
 
 	public void fillNewClientForm(String name, String contactName,
 			String contactEmail) {
-		BrowserHelper.driver.findElement(_txtName).sendKeys(name);
-		BrowserHelper.driver.findElement(_txtContact).sendKeys(contactName);
-		BrowserHelper.driver.findElement(_txtEmail).sendKeys(contactEmail);
+		Constants.DRIVER.findElement(_txtName).sendKeys(name);
+		Constants.DRIVER.findElement(_txtContact).sendKeys(contactName);
+		Constants.DRIVER.findElement(_txtEmail).sendKeys(contactEmail);
 	}
 
 	public void fillNewClientForm(String name, String contactName,
 			String contactEmail, String Status) {
-		BrowserHelper.driver.findElement(_txtName).sendKeys(name);
-		BrowserHelper.driver.findElement(_txtContact).sendKeys(contactName);
-		BrowserHelper.driver.findElement(_txtEmail).sendKeys(contactEmail);
-		BrowserHelper.driver.findElement(_linkStatus).click();
-		BrowserHelper.driver.findElement(
+		Constants.DRIVER.findElement(_txtName).sendKeys(name);
+		Constants.DRIVER.findElement(_txtContact).sendKeys(contactName);
+		Constants.DRIVER.findElement(_txtEmail).sendKeys(contactEmail);
+		Constants.DRIVER.findElement(_linkStatus).click();
+		Constants.DRIVER.findElement(
 				By.xpath(String.format(published, Status))).click();
 	}
 
 	public void clickBtnSave() {
-		BrowserHelper.driver.findElement(_btnSave).click();
+		Constants.DRIVER.findElement(_btnSave).click();
 	}
 
 	public void clickBtnSaveAndClose() {
-		BrowserHelper.driver.findElement(_btnSaveAndClose).click();
+		Constants.DRIVER.findElement(_btnSaveAndClose).click();
 	}
 }

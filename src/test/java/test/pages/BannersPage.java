@@ -2,7 +2,7 @@ package test.pages;
 
 import org.openqa.selenium.By;
 
-import test.utils.BrowserHelper;
+import test.utils.Constants;
 
 public class BannersPage extends GeneralPage {
 	private static By _linkBanners = By
@@ -15,18 +15,18 @@ public class BannersPage extends GeneralPage {
 			.xpath("//ul[@id='submenu']//a[contains(text(),'Tracks')]");
 
 	public void goToBanners() {
-		BrowserHelper.driver.findElement(_linkBanners).click();
+		Constants.DRIVER.findElement(_linkBanners).click();
 	}
 
 	public static void goToBannersCategories() {
-		BrowserHelper.driver.findElement(_linkBannersCategories).click();
+		Constants.DRIVER.findElement(_linkBannersCategories).click();
 	}
 
 	public void goToBannersClientsPage() {
-		BrowserHelper.driver.findElement(_linkBannersClients).click();
+		Constants.DRIVER.findElement(_linkBannersClients).click();
 	}
 
 	public static void goToBannersTracks() {
-		BrowserHelper.driver.findElement(_linkBannersTracks).click();
+		Constants.DRIVER.findElement(_linkBannersTracks).click();
 	}
 }

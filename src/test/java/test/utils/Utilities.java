@@ -10,26 +10,26 @@ public class Utilities {
 
 	public static void findElementInIframe(By iframe, By childen, String text)
 			throws InterruptedException {
-		WebElement Element5 = BrowserHelper.driver.findElement(iframe);
-		BrowserHelper.driver.switchTo().frame(Element5);
+		WebElement Element5 = Constants.DRIVER.findElement(iframe);
+		Constants.DRIVER.switchTo().frame(Element5);
 		Thread.sleep(300);
-		BrowserHelper.driver.findElement(childen).sendKeys(text);
-		BrowserHelper.driver.switchTo().defaultContent();
+		Constants.DRIVER.findElement(childen).sendKeys(text);
+		Constants.DRIVER.switchTo().defaultContent();
 	}
 
 	// WebDriver.findElement.Sendkeys
 	public static void sendkeys(By by, String text) {
-		BrowserHelper.driver.findElement(by).sendKeys(text);
+		Constants.DRIVER.findElement(by).sendKeys(text);
 	}
 
 	// WebDriver.findElement.click
 	public static void click(By by) {
-		BrowserHelper.driver.findElement(by).click();
+		Constants.DRIVER.findElement(by).click();
 	}
 
 	// WebDriver.findElement.clear
 	public static void clear(By by) {
-		BrowserHelper.driver.findElement(by).clear();
+		Constants.DRIVER.findElement(by).clear();
 	}
 
 	// FAKER
