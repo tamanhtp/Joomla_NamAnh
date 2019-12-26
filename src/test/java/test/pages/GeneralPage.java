@@ -316,9 +316,10 @@ public class GeneralPage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(_divFilter));
 	}
 	
-	public void logout() {
+	public void logout() throws InterruptedException {
 		Constants.DRIVER.findElement(_userMenu).click();
 		Constants.DRIVER.findElement(_logoutMenu).click();
+		Thread.sleep(300);
 	}
 	
 	public void clickBtnSearchTools() throws InterruptedException{
