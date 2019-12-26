@@ -12,7 +12,7 @@ import test.utils.Log4j;
 public class TestHelper {
 
 	GeneralPage generalPage = new GeneralPage();
-	
+
 	@BeforeClass
 	@Parameters("browser")
 	public void beforeClass(String browser) {
@@ -28,10 +28,9 @@ public class TestHelper {
 			BrowserHelper.openIeBrowser(Constants.URL_ADMINISTRATOR);
 		}
 	}
-	
+
 	@AfterClass
-	public void afterClass() {
-		
+	public void afterClass() throws InterruptedException {
 		Log4j.info("Logout");
 		generalPage.logout();
 		Log4j.info("Close Browser");
