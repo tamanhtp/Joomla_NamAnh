@@ -11,6 +11,8 @@ import test.utils.Log4j;
 
 public class TestHelper {
 
+	GeneralPage generalPage = new GeneralPage();
+	
 	@BeforeClass
 	@Parameters("browser")
 	public void beforeClass(String browser) {
@@ -29,8 +31,9 @@ public class TestHelper {
 	
 	@AfterClass
 	public void afterClass() {
+		
 		Log4j.info("Logout");
-		GeneralPage.logout();
+		generalPage.logout();
 		Log4j.info("Close Browser");
 		Constants.DRIVER.quit();
 	}

@@ -1,16 +1,16 @@
 package testNG;
 
+import static org.testng.Assert.assertEquals;
+
 import org.testng.annotations.Test;
 
-import test.pages.GeneralPage;
 import test.pages.HomePage;
 import test.pages.LoginPage;
 import test.pages.WebLinksNewPage;
 import test.pages.WebLinksPage;
-import test.utils.Utilities;
 import test.utils.Constants;
 import test.utils.Log4j;
-import static org.testng.Assert.assertEquals;
+import test.utils.Utilities;
 
 public class TC_JOOMLA_WEBLINKS_004 extends TestHelper {
 
@@ -56,7 +56,6 @@ public class TC_JOOMLA_WEBLINKS_004 extends TestHelper {
 		assertEquals(webLinksPage.checkIconUnpublishDisplayed(title), true);
 		assertEquals(webLinksPage.checkUnpublished(), true);
 		
-		Log4j.info("Logout");
-		GeneralPage.logout();
+		webLinksPage.cleanData();
 	}
 }

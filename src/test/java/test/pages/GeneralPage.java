@@ -14,7 +14,7 @@ public class GeneralPage {
 	private String _liStatus = "//div[contains(@id,'filter_state')]//li[text()='%s']";
 	public By _btnNew = By.id("toolbar-new");
 	public By _btnEdit = By.id("toolbar-edit");
-	public By _btnPublish = By.id("toolbsar-publish");
+	public By _btnPublish = By.id("toolbar-publish");
 	public By _btnUnpublish = By.id("toolbar-unpublish");
 	public By _btnArchive = By.id("toolbar-archive");
 	public By _btnCheckin = By.id("toolbar-checkin");
@@ -34,49 +34,8 @@ public class GeneralPage {
 	public By _txtFilterSearch = By.id("filter_search");
 	public By _btnSearch = By.xpath("//span[@class='icon-search']");
 
-	public By dropdownlist_Parent = By.xpath("//label[contains(text(),'Parent')]/../..//b");
-	public By dropdownlist_Status = By.xpath("//label[contains(text(),'Status')]/../..//b");
-	public By dropdownlist_Access = By.xpath("//label[contains(text(),'Access')]/../..//b");
-	public By dropdownlist_Language = By.xpath("//label[contains(text(),'Language')]/../..//b");
-	public By dropdownlist_Layout = By.xpath("//label[contains(text(),'Layout')]/../..//b");
-	public By dropdownlist_Robots = By.xpath("//label[contains(text(),'Robots')]/../..//b");
-	public By dropdownlist_Create = By.xpath("//label[contains(text(),'Create')]/../..//b");
-	public By dropdownlist_Delete = By.xpath("//label[contains(text(),'Delete')]/../..//b");
-	public By dropdownlist_Edit = By.xpath("//label[contains(text(),'Edit')]/../..//b");
-	public By dropdownlist_Edit_State = By.xpath("//label[contains(text(),'Edit State')]/../..//b");
-	public By dropdownlist_Edit_Own = By.xpath("//label[contains(text(),'Edit Own')]/../..//b");
-	public By dropdownlist_Category = By.xpath("//label[contains(text(),'Category')]/../..//b");
-	public By dropdownlist_Image_Float = By.xpath("//label[contains(text(),'Image Float')]/../..//b");
-	public By dropdownlist_Show_Title = By.xpath("//label[contains(text(),'Show Title')]/../..//b");
-	public By dropdownlist_Linked_Titles = By.xpath("//label[contains(text(),'Linked Titles')]/../..//b");
-	public By dropdownlist_Show_Tags = By.xpath("//label[contains(text(),'Show Tags')]/../..//b");
-	public By dropdownlist_ShowIntroText = By.xpath("//label[contains(text(),'Show Intro Text')]/../..//b");
-	public By dropdownlist_PositionofArticleInfo = By.xpath("//label[contains(text(),'Position of Article Info')]/../..//b");
-	public By dropdownlist_ArticleInfoTitle = By.xpath("//label[contains(text(),'Article Info Title')]/../..//b");
-	public By dropdownlist_ShowCategory = By.xpath("//label[contains(text(),'Show Category')]/../..//b");
-	public By dropdownlist_LinkCategory = By.xpath("//label[contains(text(),'Link Category')]/../..//b");
-	public By dropdownlist_ShowParent = By.xpath("//label[contains(text(),'Show Parent')]/../..//b");
-	public By dropdownlist_LinkParent = By.xpath("//label[contains(text(),'Link Parent')]/../..//b");
-	public By dropdownlist_ShowAssociations = By.xpath("//label[contains(text(),'Show Associations')]/../..//b");
-	public By dropdownlist_ShowAuthor = By.xpath("//label[contains(text(),'Show Author')]/../..//b");
-	public By dropdownlist_LinkAuthor = By.xpath("//label[contains(text(),'Link Author')]/../..//b");
-	public By dropdownlist_ShowCreateDate = By.xpath("//label[contains(text(),'Show Create Date')]/../..//b");
-	public By dropdownlist_ShowModifyDate = By.xpath("//label[contains(text(),'Show Modify Date')]/../..//b");
-	public By dropdownlist_ShowPublishDate = By.xpath("//label[contains(text(),'Show Publish Date')]/../..//b");
-	public By dropdownlist_ShowNavigation = By.xpath("//label[contains(text(),'Show Navigation')]/../..//b");
-	public By dropdownlist_ShowIcons = By.xpath("//label[contains(text(),'Show Icons')]/../..//b");
-	public By dropdownlist_ShowPrint = By.xpath("//label[contains(text(),'Show Print')]/../..//b");
-	public By dropdownlist_ShowEmail = By.xpath("//label[contains(text(),'Show Email')]/../..//b");
-	public By dropdownlist_ShowVoting = By.xpath("//label[contains(text(),'Show Voting')]/../..//b");
-	public By dropdownlist_ShowHits = By.xpath("//label[contains(text(),'Show Hits')]/../..//b");
-	public By dropdownlist_ShowUnauthorisedLinks = By.xpath("//label[contains(text(),'Show Unauthorised Links')]/../..//b");
-	public By dropdownlist_PositioningoftheLinks = By.xpath("//label[contains(text(),'Positioning of the Links')]/../..//b");
-	public By dropdownlist_ShowPublishingOptions = By.xpath("//label[contains(text(),'Show Publishing Options')]/../..//b");
-	public By dropdownlist_ShowArticleOptions = By.xpath("//label[contains(text(),'Show Article Options')]/../..//b");
-	public By dropdownlist_AdministratorImagesandLinks = By.xpath("//label[contains(text(),'Administrator Images and Links')]/../..//b");
-	public By dropdownlist_FrontendImagesandLinks = By.xpath("//label[contains(text(),'Frontend Images and Links')]/../..//b");
-
-
+	public By _dropdownlist_Status = By.xpath("//label[contains(text(),'Status')]/../..//b");
+	
 	// items in dropdownlist
 	public By status_Published = By.xpath("//li[text()='Published']");
 	public By status_Unpublished = By.xpath("//li[text()='Unpublished']");
@@ -119,7 +78,6 @@ public class GeneralPage {
 	public static By _linkBanners = By.xpath("//a[@class='dropdown-toggle menu-banners']");
 
 	//alert message
-	
 	private static By mess_Saved = By.xpath("//div[@class='alert-message' and contains(text(),'saved')]");
 	private static By mess_Published = By.xpath("//div[@class='alert-message' and contains(text(),'published')]");
 	private static By mess_Trashed = By.xpath("//div[@class='alert-message' and contains(text(),'trashed')]");
@@ -127,13 +85,14 @@ public class GeneralPage {
 	private static By mess_Checkedin = By.xpath("//div[@class='alert-message' and contains(text(),'checked in')]");
 	private static By mess_Unpublished = By.xpath("//div[@class='alert-message' and contains(text(),'unpublished')]");
 	//Logout
-	private static By user_menu = By.xpath("//div[contains(text(),'User Menu')]");
-	private static By logout_menu = By.linkText("Logout");
+	private By _userMenu = By.xpath("//div[contains(text(),'User Menu')]");
+	private By _logoutMenu = By.linkText("Logout");
 	
 	private String _iconPublish = "//a[normalize-space(text())='%s']/../..//span[@class='icon-publish']";
 	private String _iconUnpublish = "//a[normalize-space(text())='%s']/../..//span[@class='icon-unpublish']";
 	
-	
+	private String _inputCheckAll = "//th//a[normalize-space(text())='Status']/ancestor::tr/th/input";
+	private By _btnEmptyTrash = By.id("toolbar-delete");
 	
 	public boolean checkIconPublishDisplayed(String title) {
 		return Constants.DRIVER.findElement(By.xpath(String.format(_iconPublish, title))).isDisplayed();
@@ -149,7 +108,7 @@ public class GeneralPage {
 		Constants.DRIVER.findElement(_btnNew).click();
 	}
 
-	public void edit() {
+	public void clickBtnEdit() {
 		Constants.DRIVER.findElement(_btnEdit).click();
 	}
 
@@ -166,7 +125,7 @@ public class GeneralPage {
 		Constants.DRIVER.findElement(_btnArchive).click();
 	}
 
-	public void checkin() {
+	public void clickBtnCheckin() {
 		Constants.DRIVER.findElement(_btnCheckin).click();
 	}
 
@@ -175,19 +134,19 @@ public class GeneralPage {
 		Constants.DRIVER.findElement(_btnTrash).click();
 	}
 
-	public void batch() {
+	public void clickBtnBatch() {
 		Constants.DRIVER.findElement(_btnBatch).click();
 	}
 
-	public void options() {
+	public void clickBtnOptions() {
 		Constants.DRIVER.findElement(_btnOptions).click();
 	}
 
-	public void help() {
+	public void clickBtnHelp() {
 		Constants.DRIVER.findElement(_btnHelp).click();
 	}
 
-	public void rebuild() {
+	public void clickBtnRebuild() {
 		Constants.DRIVER.findElement(_btnRefresh).click();
 	}
 
@@ -203,7 +162,7 @@ public class GeneralPage {
 		Constants.DRIVER.findElement(_btnSaveAndNew).click();
 	}
 
-	public void cancel() {
+	public void clickBtnCancel() {
 		Constants.DRIVER.findElement(_btnCancel).click();
 	}
 
@@ -326,10 +285,6 @@ public class GeneralPage {
 	}
 	
 	public boolean checkCheckinIconbyTitle(String title) {
-//		Constants.DRIVER.findElement(_txtFilterSearch).clear();
-//		Constants.DRIVER.findElement(_txtFilterSearch).sendKeys(title);
-//		Constants.DRIVER.findElement(_btnSearch).click();
-		
 		String xpath = String.format("//a[normalize-space(text())='%s']/..//span[@class=\"icon-checkedout\"]", title);
 		return Constants.DRIVER.findElements(By.xpath(xpath)).size()==1;
 	}
@@ -355,18 +310,15 @@ public class GeneralPage {
 			Constants.DRIVER.findElement(By.xpath(xpath)).click();
 		}
 	}
-	
-	//a[normalize-space(text())='A Time to Kill']
-	
+		
 	public void waitForFilter(int seconds){
 		WebDriverWait wait = new WebDriverWait(Constants.DRIVER, seconds);
-		wait.until(ExpectedConditions.visibilityOfElementLocated
-		              (_divFilter));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(_divFilter));
 	}
 	
-	public static void logout() {
-		Constants.DRIVER.findElement(user_menu).click();
-		Constants.DRIVER.findElement(logout_menu).click();
+	public void logout() {
+		Constants.DRIVER.findElement(_userMenu).click();
+		Constants.DRIVER.findElement(_logoutMenu).click();
 	}
 	
 	public void clickBtnSearchTools() throws InterruptedException{
@@ -381,5 +333,20 @@ public class GeneralPage {
 	public void selectStatus(String status){
 		Constants.DRIVER.findElement(_divStatus).click();
 		Constants.DRIVER.findElement(By.xpath(String.format(_liStatus, status))).click();
+	}
+	public void cleanData() throws InterruptedException {
+		this.clickBtnClear();
+		this.clickBtnSearchTools();
+		this.selectStatus("All");
+		if (Constants.DRIVER.findElements(By.xpath(_inputCheckAll)).size() == 1) {
+			Constants.DRIVER.findElement(By.xpath(_inputCheckAll)).click();
+			Constants.DRIVER.findElement(_btnTrash).click();
+			this.clickBtnClear();
+			this.clickBtnSearchTools();
+			this.selectStatus("Trashed");
+			Constants.DRIVER.findElement(By.xpath(_inputCheckAll)).click();
+			Constants.DRIVER.findElement(_btnEmptyTrash).click();
+			Constants.DRIVER.switchTo().alert().accept();
+		}
 	}
 }
