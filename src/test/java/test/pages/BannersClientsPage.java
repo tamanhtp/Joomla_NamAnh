@@ -34,19 +34,24 @@ public class BannersClientsPage extends GeneralPage {
 		this.clickBtnClear();
 		this.clickBtnSearchTools();
 		this.selectStatus("All");
-		Constants.DRIVER.findElement(By.xpath(_inputCheclAll)).click();
-		Constants.DRIVER.findElement(_btnTrash).click();
-		this.clickBtnClear();
-		this.clickBtnSearchTools();
-		this.selectStatus("Trashed");
-		Constants.DRIVER.findElement(By.xpath(_inputCheclAll)).click();
-		Constants.DRIVER.findElement(_btnEmptyTrash).click();
-		Constants.DRIVER.switchTo().alert().accept();
+		if (Constants.DRIVER.findElements(By.xpath(_inputCheclAll)).size() == 1) {
+			Constants.DRIVER.findElement(By.xpath(_inputCheclAll)).click();
+			Constants.DRIVER.findElement(_btnTrash).click();
+			this.clickBtnClear();
+			this.clickBtnSearchTools();
+			this.selectStatus("Trashed");
+			Constants.DRIVER.findElement(By.xpath(_inputCheclAll)).click();
+			Constants.DRIVER.findElement(_btnEmptyTrash).click();
+			Constants.DRIVER.switchTo().alert().accept();
+		}
 	}
 
 	public void selectCheckbox(String title) {
-		Constants.DRIVER.findElement(
-				By.xpath(String.format(_inputCheck, title))).click();
+		if (Constants.DRIVER.findElements(
+				By.xpath(String.format(_inputCheck, title))).size() == 1) {
+			Constants.DRIVER.findElement(
+					By.xpath(String.format(_inputCheck, title))).click();
+		}
 	}
 
 	public void clickBtnSearchTools() throws InterruptedException {
