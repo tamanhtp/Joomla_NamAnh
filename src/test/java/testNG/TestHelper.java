@@ -4,6 +4,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
+import test.pages.GeneralPage;
 import test.utils.BrowserHelper;
 import test.utils.Constants;
 import test.utils.Log4j;
@@ -28,6 +29,8 @@ public class TestHelper {
 	
 	@AfterClass
 	public void afterClass() {
+		Log4j.info("Logout");
+		GeneralPage.logout();
 		Log4j.info("Close Browser");
 		Constants.DRIVER.quit();
 	}
