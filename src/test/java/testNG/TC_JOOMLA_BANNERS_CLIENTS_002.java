@@ -68,6 +68,6 @@ public class TC_JOOMLA_BANNERS_CLIENTS_002 extends TestHelper {
 		boolean temp = bannersClientsPage.checkElelementExists(titleName1);
 		assertTrue(temp, "Element is not exist");
 		
-		bannersClientsPage.clearData();
+		bannersClientsPage.cleanData();
 	}
 }

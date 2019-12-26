@@ -30,7 +30,7 @@ public class BannersClientsPage extends GeneralPage {
 		Constants.DRIVER.findElement(_btnPublish).click();
 	}
 
-	public void clearData() throws InterruptedException {
+	public void cleanData() throws InterruptedException {
 		this.clickBtnClear();
 		this.clickBtnSearchTools();
 		this.selectStatus("All");
@@ -44,7 +44,7 @@ public class BannersClientsPage extends GeneralPage {
 		Constants.DRIVER.switchTo().alert().accept();
 	}
 
-	public void checkClients(String title) {
+	public void selectCheckbox(String title) {
 		Constants.DRIVER.findElement(
 				By.xpath(String.format(_inputCheck, title))).click();
 	}
