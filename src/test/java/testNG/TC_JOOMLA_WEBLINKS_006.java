@@ -5,7 +5,6 @@ import static org.testng.Assert.assertEquals;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import test.pages.GeneralPage;
 import test.pages.HomePage;
 import test.pages.LoginPage;
 import test.pages.WebLinksNewPage;
@@ -64,7 +63,6 @@ public class TC_JOOMLA_WEBLINKS_006 extends TestHelper {
 		Log4j.info("Step 9. Verify the weblink is checked in successfully");
 		assertEquals(webLinksPage.checkCheckinIconbyTitle(title), false);
 				
-		Log4j.info("Logout");
-		GeneralPage.logout();
+		webLinksPage.cleanData();
 	}
 }

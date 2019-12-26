@@ -14,7 +14,7 @@ public class GeneralPage {
 	private String _liStatus = "//div[contains(@id,'filter_state')]//li[text()='%s']";
 	public By _btnNew = By.id("toolbar-new");
 	public By _btnEdit = By.id("toolbar-edit");
-	public By _btnPublish = By.id("toolbsar-publish");
+	public By _btnPublish = By.id("toolbar-publish");
 	public By _btnUnpublish = By.id("toolbar-unpublish");
 	public By _btnArchive = By.id("toolbar-archive");
 	public By _btnCheckin = By.id("toolbar-checkin");
@@ -78,7 +78,6 @@ public class GeneralPage {
 	public static By _linkBanners = By.xpath("//a[@class='dropdown-toggle menu-banners']");
 
 	//alert message
-	
 	private static By mess_Saved = By.xpath("//div[@class='alert-message' and contains(text(),'saved')]");
 	private static By mess_Published = By.xpath("//div[@class='alert-message' and contains(text(),'published')]");
 	private static By mess_Trashed = By.xpath("//div[@class='alert-message' and contains(text(),'trashed')]");
@@ -86,13 +85,14 @@ public class GeneralPage {
 	private static By mess_Checkedin = By.xpath("//div[@class='alert-message' and contains(text(),'checked in')]");
 	private static By mess_Unpublished = By.xpath("//div[@class='alert-message' and contains(text(),'unpublished')]");
 	//Logout
-	private static By user_menu = By.xpath("//div[contains(text(),'User Menu')]");
-	private static By logout_menu = By.linkText("Logout");
+	private By _userMenu = By.xpath("//div[contains(text(),'User Menu')]");
+	private By _logoutMenu = By.linkText("Logout");
 	
 	private String _iconPublish = "//a[normalize-space(text())='%s']/../..//span[@class='icon-publish']";
 	private String _iconUnpublish = "//a[normalize-space(text())='%s']/../..//span[@class='icon-unpublish']";
 	
-	
+	private String _inputCheckAll = "//th//a[normalize-space(text())='Status']/ancestor::tr/th/input";
+	private By _btnEmptyTrash = By.id("toolbar-delete");
 	
 	public boolean checkIconPublishDisplayed(String title) {
 		return Constants.DRIVER.findElement(By.xpath(String.format(_iconPublish, title))).isDisplayed();
@@ -316,9 +316,9 @@ public class GeneralPage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(_divFilter));
 	}
 	
-	public static void logout() {
-		Constants.DRIVER.findElement(user_menu).click();
-		Constants.DRIVER.findElement(logout_menu).click();
+	public void logout() {
+		Constants.DRIVER.findElement(_userMenu).click();
+		Constants.DRIVER.findElement(_logoutMenu).click();
 	}
 	
 	public void clickBtnSearchTools() throws InterruptedException{
@@ -333,5 +333,20 @@ public class GeneralPage {
 	public void selectStatus(String status){
 		Constants.DRIVER.findElement(_divStatus).click();
 		Constants.DRIVER.findElement(By.xpath(String.format(_liStatus, status))).click();
+	}
+	public void cleanData() throws InterruptedException {
+		this.clickBtnClear();
+		this.clickBtnSearchTools();
+		this.selectStatus("All");
+		if (Constants.DRIVER.findElements(By.xpath(_inputCheckAll)).size() == 1) {
+			Constants.DRIVER.findElement(By.xpath(_inputCheckAll)).click();
+			Constants.DRIVER.findElement(_btnTrash).click();
+			this.clickBtnClear();
+			this.clickBtnSearchTools();
+			this.selectStatus("Trashed");
+			Constants.DRIVER.findElement(By.xpath(_inputCheckAll)).click();
+			Constants.DRIVER.findElement(_btnEmptyTrash).click();
+			Constants.DRIVER.switchTo().alert().accept();
+		}
 	}
 }
