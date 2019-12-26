@@ -51,7 +51,7 @@ public class TC_JOOMLA_BANNERS_CLIENTS_004 extends TestHelper{
 		assertTrue(temp, "Element is not exist");
 
 		Log4j.info("Step 7. Check Clients");
-		bannersClientsPage.checkClients(titleName);
+		bannersClientsPage.selectCheckbox(titleName);
 
 		Log4j.info("Step 8. Click Unpublish button");
 		bannersClientsPage.clickBtnUnpublish();
@@ -65,6 +65,6 @@ public class TC_JOOMLA_BANNERS_CLIENTS_004 extends TestHelper{
 				"unpublish");
 		assertTrue(temp1, "Element does not exist");
 		
-		bannersClientsPage.clearData();
+		bannersClientsPage.cleanData();
   }
 }
