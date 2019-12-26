@@ -326,12 +326,12 @@ public class GeneralPage {
 	}
 	
 	public boolean checkCheckinIconbyTitle(String title) {
-		Constants.DRIVER.findElement(_txtFilterSearch).clear();
-		Constants.DRIVER.findElement(_txtFilterSearch).sendKeys(title);
-		Constants.DRIVER.findElement(_btnSearch).click();
+//		Constants.DRIVER.findElement(_txtFilterSearch).clear();
+//		Constants.DRIVER.findElement(_txtFilterSearch).sendKeys(title);
+//		Constants.DRIVER.findElement(_btnSearch).click();
 		
 		String xpath = String.format("//a[normalize-space(text())='%s']/..//span[@class=\"icon-checkedout\"]", title);
-		return Constants.DRIVER.findElement(By.xpath(xpath)).isDisplayed();
+		return Constants.DRIVER.findElements(By.xpath(xpath)).size()==1;
 	}
 	
 	
@@ -344,12 +344,11 @@ public class GeneralPage {
 		Constants.DRIVER.findElement(By.xpath(xpath)).click();
 		
 	}
-	public void selectCheckboxWithTitle(String title) {
+	public void selectCheckboxWithTitle(String title) throws InterruptedException {
 		
 		Constants.DRIVER.findElement(_txtFilterSearch).clear();
 		Constants.DRIVER.findElement(_txtFilterSearch).sendKeys(title);
 		Constants.DRIVER.findElement(_btnSearch).click();
-		
 		String xpath = String.format("//table//a[contains(text(),'%s')]/../..//input", title);
 		if(!Constants.DRIVER.findElement(By.xpath(xpath)).isSelected())
 		{
