@@ -2,8 +2,10 @@ package testNG;
 
 import static org.testng.Assert.assertEquals;
 
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import test.pages.GeneralPage;
 import test.pages.HomePage;
 import test.pages.LoginPage;
 import test.pages.WebLinksNewPage;
@@ -26,8 +28,9 @@ public class TC_JOOMLA_WEBLINKS_006 extends TestHelper {
 	public TC_JOOMLA_WEBLINKS_006() {
 
 	}
+	@Parameters("browser")
 	@Test(description = "TC_JOOMLA_WEBLINKS_006 - Verify user can check-in a weblink")
-	public void f() throws InterruptedException {
+	public void f(String browser) throws InterruptedException {
 		
 		Log4j.info("Step 1. Login");
 		LoginPage.login(Constants.LOGIN_USERNAME, Constants.LOGIN_PASSWORD);
@@ -45,23 +48,22 @@ public class TC_JOOMLA_WEBLINKS_006 extends TestHelper {
 		webLinksNewPage.clickBtnSave();
 		
 		Log4j.info("Step 6. Close Browser, open new, login, goto weblink ");
-		Constants.DRIVER.quit();
+		Constants.DRIVER.close();
+		testHelper.beforeClass(browser);
 		Constants.DRIVER.get(Constants.URL_ADMINISTRATOR);
 		LoginPage.login(Constants.LOGIN_USERNAME, Constants.LOGIN_PASSWORD);
 		homePage.goToWebLinksPage();
 
 		Log4j.info("Step 7. Check on the recently added weblink's checkbox");
 		webLinksPage.selectCheckboxWithTitle(title);
-		assertEquals(webLinksPage.checkCheckinIconbyTitle(title), true);
-		
+		Log4j.info("title:"+title);
 		Log4j.info("Step 8. Click on 'Check In' icon of the top right toolbar");
 		webLinksPage.click_button(webLinksPage._btnCheckin);
 				
 		Log4j.info("Step 9. Verify the weblink is checked in successfully");
 		assertEquals(webLinksPage.checkCheckinIconbyTitle(title), false);
 		
-		
-//		Log4j.info("Logout");
-//		GeneralPage.logout();
+		Log4j.info("Logout");
+		GeneralPage.logout();
 	}
 }
