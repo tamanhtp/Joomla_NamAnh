@@ -65,6 +65,7 @@ public class TC_JOOMLA_BANNERS_CLIENTS_004 extends TestHelper{
 				"unpublish");
 		assertTrue(temp1, "Element does not exist");
 		
+		Log4j.info("Step 9. Clean Data");
 		bannersClientsPage.cleanData();
   }
 }
