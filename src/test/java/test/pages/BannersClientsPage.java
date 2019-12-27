@@ -1,12 +1,14 @@
 package test.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import test.utils.Constants;
 
 public class BannersClientsPage extends GeneralPage {
 	private String _inputCheck = "//td//a[normalize-space(text())='%s']//ancestor::tr//input";
-	private String _inputCheclAll = "//th//a[normalize-space(text())='Status']/ancestor::tr/th/input";
+	private String _inputCheckAll = "//th//a[normalize-space(text())='Status']/ancestor::tr/th/input";
 	private String _clientName = "//td//a[normalize-space(text())='%s']";
 	private String _boxName = "//td//a[normalize-space(text())='%s']//ancestor::tr//span[@class='icon-%s']";
 	private By _divMessage = By
@@ -21,6 +23,9 @@ public class BannersClientsPage extends GeneralPage {
 	private By _btnPublish = By.id("toolbar-publish");
 	private By _btnTrash = By.id("toolbar-trash");
 	private By _btnEmptyTrash = By.id("toolbar-delete");
+	private By _divFilter = By.className("js-stools-field-filter");
+	private By _divListLimit = By.xpath("//select[@id='list_limit']/..");
+	private By _liAll = By.xpath("//ul//li[text()='All']");
 
 	public void clickBtnNew() {
 		Constants.DRIVER.findElement(_btnNew).click();
@@ -30,19 +35,23 @@ public class BannersClientsPage extends GeneralPage {
 		Constants.DRIVER.findElement(_btnPublish).click();
 	}
 
-	public void cleanData() throws InterruptedException {
+	public void cleanData() {
+		Constants.DRIVER.findElement(_divListLimit).click();
+		Constants.DRIVER.findElement(_liAll).click();
 		this.clickBtnClear();
 		this.clickBtnSearchTools();
 		this.selectStatus("All");
-		if (Constants.DRIVER.findElements(By.xpath(_inputCheclAll)).size() == 1) {
-			Constants.DRIVER.findElement(By.xpath(_inputCheclAll)).click();
+		if (Constants.DRIVER.findElements(By.xpath(_inputCheckAll)).size() == 1) {
+			Constants.DRIVER.findElement(By.xpath(_inputCheckAll)).click();
 			Constants.DRIVER.findElement(_btnTrash).click();
 			this.clickBtnClear();
 			this.clickBtnSearchTools();
 			this.selectStatus("Trashed");
-			Constants.DRIVER.findElement(By.xpath(_inputCheclAll)).click();
+			Constants.DRIVER.findElement(By.xpath(_inputCheckAll)).click();
 			Constants.DRIVER.findElement(_btnEmptyTrash).click();
 			Constants.DRIVER.switchTo().alert().accept();
+			WebDriverWait wait = new WebDriverWait(Constants.DRIVER, 3);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert-message")));
 		}
 	}
 
@@ -54,9 +63,10 @@ public class BannersClientsPage extends GeneralPage {
 		}
 	}
 
-	public void clickBtnSearchTools() throws InterruptedException {
+	public void clickBtnSearchTools(){
 		Constants.DRIVER.findElement(_btnSearchTools).click();
-		Thread.sleep(1000);
+		WebDriverWait wait = new WebDriverWait(Constants.DRIVER, 60);
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(_divFilter));
 	}
 
 	public void clickBtnClear() {
@@ -64,7 +74,7 @@ public class BannersClientsPage extends GeneralPage {
 	}
 
 	public void selectStatus(String status) {
-		Constants.DRIVER.findElement(_divStatus).click();
+		Constants.DRIVER.findElement(_divStatus).click();	
 		Constants.DRIVER
 				.findElement(By.xpath(String.format(_liStatus, status)))
 				.click();
