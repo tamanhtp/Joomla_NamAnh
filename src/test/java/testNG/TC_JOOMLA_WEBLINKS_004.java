@@ -2,6 +2,8 @@ package testNG;
 
 import static org.testng.Assert.assertEquals;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import test.pages.HomePage;
@@ -21,12 +23,8 @@ public class TC_JOOMLA_WEBLINKS_004 extends TestHelper {
 	String title = "Test WEBLINKS_004"+Utilities.timerNow();
 	String url = "http://www.joomla.org";
 	
-	public TC_JOOMLA_WEBLINKS_004() {
-
-	}
-	@Test(description = "TC_JOOMLA_WEBLINKS_004 - Verify user can unpublish a published web link")
-	public void f() throws InterruptedException {
-		
+	@BeforeMethod
+	public void beforeMethod() {
 		Log4j.info("Step 1. Login");
 		LoginPage.login(Constants.LOGIN_USERNAME, Constants.LOGIN_PASSWORD);
 				
@@ -34,10 +32,13 @@ public class TC_JOOMLA_WEBLINKS_004 extends TestHelper {
 		homePage.goToWebLinksPage();
 		
 		Log4j.info("Step 3. Click button new redirect New WebLinks page");
-		webLinksPage.clickBtnNew();
-		
+		webLinksPage.goToWebLinksNewPage();
+	}
+	@Test(description = "TC_JOOMLA_WEBLINKS_004 - Verify user can unpublish a published web link")
+	public void f() throws InterruptedException {
+				
 		Log4j.info("Step 4. Create new");
-		webLinksNewPage.createNew(title,Utilities.getTitle(),url,Utilities.getContent(),webLinksNewPage.status_Published);
+		webLinksNewPage.createNew(title,Utilities.getTitle(),url,Utilities.getContent(),webLinksNewPage._status_Published);
 		
 		Log4j.info("Step 5. save and close");
 		webLinksNewPage.clickBtnSaveAndClose();
@@ -56,6 +57,10 @@ public class TC_JOOMLA_WEBLINKS_004 extends TestHelper {
 		assertEquals(webLinksPage.doesIconUnpublishDisplayed(title), true);
 		assertEquals(webLinksPage.checkUnpublished(), true);
 		
+	}
+	@AfterMethod
+	public void AfterMethod() throws InterruptedException {
+		Log4j.info("Clean Data");
 		webLinksPage.cleanData();
 	}
 }

@@ -2,6 +2,8 @@ package testNG;
 
 import static org.testng.Assert.assertEquals;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import test.pages.HomePage;
@@ -23,12 +25,8 @@ public class TC_JOOMLA_WEBLINKS_002 extends TestHelper {
 	String title_new = "Test WEBLINKS_002 new"+Utilities.timerNow();
 	String url_new = "http://www.google.com";
 	
-	public TC_JOOMLA_WEBLINKS_002() {
-
-	}
-	@Test(description = "TC_JOOMLA_WEBLINKS_002 - Verify that user can edit a client")
-	public void f() throws InterruptedException {
-		
+	@BeforeMethod
+	public void beforeMethod() {
 		Log4j.info("Step 1. Login");
 		LoginPage.login(Constants.LOGIN_USERNAME, Constants.LOGIN_PASSWORD);
 				
@@ -36,10 +34,13 @@ public class TC_JOOMLA_WEBLINKS_002 extends TestHelper {
 		homePage.goToWebLinksPage();
 		
 		Log4j.info("Step 3. Click button new redirect new WebLinks page");
-		webLinksPage.clickBtnNew();
-		
+		webLinksPage.goToWebLinksNewPage();
+	}
+	@Test(description = "TC_JOOMLA_WEBLINKS_002 - Verify that user can edit a client")
+	public void f() throws InterruptedException {
+				
 		Log4j.info("Step 4. Create new");
-		webLinksNewPage.createNew(title,Utilities.getTitle(),url,Utilities.getContent(),webLinksNewPage.status_Unpublished);
+		webLinksNewPage.createNew(title,Utilities.getTitle(),url,Utilities.getContent(),webLinksNewPage._status_Unpublished);
 		
 		Log4j.info("Step 5. save and close");
 		webLinksNewPage.clickBtnSaveAndClose();
@@ -67,6 +68,10 @@ public class TC_JOOMLA_WEBLINKS_002 extends TestHelper {
 		assertEquals(webLinksPage.checkSaved(), true);
 		assertEquals(webLinksPage.checkCreationByTitle(title_new), true);
 		
-		webLinksPage.cleanData();
 	}
+		@AfterMethod
+		public void AfterMethod() throws InterruptedException {
+			Log4j.info("Clean Data");
+			webLinksPage.cleanData();
+		}
 }
