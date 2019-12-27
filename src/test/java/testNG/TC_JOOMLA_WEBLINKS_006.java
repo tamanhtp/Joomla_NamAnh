@@ -19,7 +19,7 @@ public class TC_JOOMLA_WEBLINKS_006 extends TestHelper {
 	WebLinksPage webLinksPage = new WebLinksPage();
 	WebLinksNewPage webLinksNewPage = new WebLinksNewPage();
 		
-	String title = "Test WEBLINKS_006"+Utilities.timer_hhmmss();
+	String title = "Test WEBLINKS_006"+Utilities.timerNow();
 	String url = "http://www.joomla.org";
 	TestHelper testHelper = new TestHelper();
 	
@@ -41,7 +41,7 @@ public class TC_JOOMLA_WEBLINKS_006 extends TestHelper {
 		webLinksPage.clickBtnNew();
 		
 		Log4j.info("Step 4. Create new");
-		webLinksNewPage.createNew(title,Utilities.faker_title(),url,Utilities.getContent(),webLinksNewPage.status_Published);
+		webLinksNewPage.createNew(title,Utilities.getTitle(),url,Utilities.getContent(),webLinksNewPage.status_Published);
 		
 		Log4j.info("Step 5. Save");
 		webLinksNewPage.clickBtnSave();
@@ -58,7 +58,7 @@ public class TC_JOOMLA_WEBLINKS_006 extends TestHelper {
 		assertEquals(webLinksPage.checkCheckinIconbyTitle(title), true);
 		
 		Log4j.info("Step 8. Click on 'Check In' icon of the top right toolbar");
-		webLinksPage.click_button(webLinksPage._btnCheckin);
+		webLinksPage.clickBtnCheckin();
 		
 		Log4j.info("Step 9. Verify the weblink is checked in successfully");
 		assertEquals(webLinksPage.checkCheckinIconbyTitle(title), false);

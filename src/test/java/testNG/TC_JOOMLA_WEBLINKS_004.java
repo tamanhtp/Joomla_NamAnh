@@ -18,7 +18,7 @@ public class TC_JOOMLA_WEBLINKS_004 extends TestHelper {
 	WebLinksPage webLinksPage = new WebLinksPage();
 	WebLinksNewPage webLinksNewPage = new WebLinksNewPage();
 		
-	String title = "Test WEBLINKS_004"+Utilities.timer_hhmmss();
+	String title = "Test WEBLINKS_004"+Utilities.timerNow();
 	String url = "http://www.joomla.org";
 	
 	public TC_JOOMLA_WEBLINKS_004() {
@@ -37,7 +37,7 @@ public class TC_JOOMLA_WEBLINKS_004 extends TestHelper {
 		webLinksPage.clickBtnNew();
 		
 		Log4j.info("Step 4. Create new");
-		webLinksNewPage.createNew(title,Utilities.faker_title(),url,Utilities.getContent(),webLinksNewPage.status_Published);
+		webLinksNewPage.createNew(title,Utilities.getTitle(),url,Utilities.getContent(),webLinksNewPage.status_Published);
 		
 		Log4j.info("Step 5. save and close");
 		webLinksNewPage.clickBtnSaveAndClose();
@@ -50,10 +50,10 @@ public class TC_JOOMLA_WEBLINKS_004 extends TestHelper {
 		webLinksPage.selectCheckboxWithTitle(title);
 		
 		Log4j.info("Step 8. Click on 'Publich' icon of the top right toolbar");
-		webLinksPage.click_button(webLinksPage._btnUnpublish);
+		webLinksPage.clickBtnPublish();
 				
 		Log4j.info("Step 9. Verify the web link is published successfully");
-		assertEquals(webLinksPage.checkIconUnpublishDisplayed(title), true);
+		assertEquals(webLinksPage.doesIconUnpublishDisplayed(title), true);
 		assertEquals(webLinksPage.checkUnpublished(), true);
 		
 		webLinksPage.cleanData();

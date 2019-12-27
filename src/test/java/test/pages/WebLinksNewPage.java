@@ -2,16 +2,20 @@ package test.pages;
 
 import org.openqa.selenium.By;
 
+import test.utils.Constants;
 import test.utils.Utilities;
 
 public class WebLinksNewPage extends GeneralPage {
+	
+	GeneralPage generalPage = new GeneralPage(); 
 	public void createNew(String title, String alias, String url,
 			String content, By status) throws InterruptedException {
-		Utilities.sendkeys(_txtTitle, title);
-		Utilities.sendkeys(_txtAlias, alias);
-		Utilities.sendkeys(_txtUrl, url);
-		Utilities.findElementInIframe(txtarea_iframe,txtarea_content, content);
-		Utilities.click(_dropdownlist_Status);
-		Utilities.click(status);
+		Constants.DRIVER.findElement(generalPage._txtTitle).sendKeys(title);
+		Constants.DRIVER.findElement(generalPage._txtAlias).sendKeys(alias);
+		Constants.DRIVER.findElement(generalPage._txtUrl).sendKeys(url);
+		Utilities.findElementInIframe(generalPage.txtarea_iframe,generalPage.txtarea_content, content);
+		Constants.DRIVER.findElement(_dropdownlist_Status).click();
+		Constants.DRIVER.findElement(status).click();
+		
 	}
 }
