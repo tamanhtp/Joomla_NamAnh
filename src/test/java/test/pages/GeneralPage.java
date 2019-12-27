@@ -8,10 +8,13 @@ import test.utils.Constants;
 
 public class GeneralPage {
 	private By _btnSearchTools = By.xpath("//button[normalize-space(text())='Search Tools']");
-	private By _divStatus = By.xpath("//select[@id='filter_state']/../div");
+	private By _divStatus = By.xpath("//select[@id='filter_published']/../div");
 	private By _btnClear = By.xpath("//button[normalize-space(text())='Clear']");
-	private By _divFilter = By.xpath("div[class^='js-stools-container-filters']");
 	private String _liStatus = "//div[contains(@id,'filter_state')]//li[text()='%s']";
+	private By _divFilter = By.className("js-stools-field-filter");
+	private By _divListLimit = By.xpath("//select[@id='list_limit']/..");
+	private By _liAll = By.xpath("//ul//li[text()='All']");
+
 	private By _btnNew = By.id("toolbar-new");
 	private By _btnEdit = By.id("toolbar-edit");
 	private By _btnPublish = By.id("toolbar-publish");
@@ -298,7 +301,7 @@ public class GeneralPage {
 
 	}
 
-	public void selectCheckboxWithTitle(String title) throws InterruptedException {
+	public void selectCheckboxWithTitle(String title) {
 
 		Constants.DRIVER.findElement(_txtFilterSearch).clear();
 		Constants.DRIVER.findElement(_txtFilterSearch).sendKeys(title);
@@ -314,15 +317,15 @@ public class GeneralPage {
 		wait.until(ExpectedConditions.visibilityOfElementLocated(_divFilter));
 	}
 
-	public void logout() throws InterruptedException {
+	public void logout() {
 		Constants.DRIVER.findElement(_userMenu).click();
 		Constants.DRIVER.findElement(_logoutMenu).click();
-		Thread.sleep(300);
 	}
 
-	public void clickBtnSearchTools() throws InterruptedException {
+	public void clickBtnSearchTools() {
 		Constants.DRIVER.findElement(_btnSearchTools).click();
-		Thread.sleep(1000);
+		WebDriverWait wait = new WebDriverWait(Constants.DRIVER, 60);
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(_divFilter));
 	}
 
 	public void clickBtnClear() {
@@ -334,7 +337,9 @@ public class GeneralPage {
 		Constants.DRIVER.findElement(By.xpath(String.format(_liStatus, status))).click();
 	}
 
-	public void cleanData() throws InterruptedException {
+	public void cleanData() {
+		Constants.DRIVER.findElement(_divListLimit).click();
+		Constants.DRIVER.findElement(_liAll).click();
 		this.clickBtnClear();
 		this.clickBtnSearchTools();
 		this.selectStatus("All");
@@ -347,6 +352,8 @@ public class GeneralPage {
 			Constants.DRIVER.findElement(By.xpath(_inputCheckAll)).click();
 			Constants.DRIVER.findElement(_btnEmptyTrash).click();
 			Constants.DRIVER.switchTo().alert().accept();
+			WebDriverWait wait = new WebDriverWait(Constants.DRIVER, 3);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert-message")));
 		}
 	}
 }
