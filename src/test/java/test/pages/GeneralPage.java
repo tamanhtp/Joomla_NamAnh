@@ -37,53 +37,46 @@ public class GeneralPage {
 	public By _dropdownlist_Status = By.xpath("//label[contains(text(),'Status')]/../..//b");
 
 	// items in dropdownlist
-	public By status_Published = By.xpath("//li[text()='Published']");
-	public By status_Unpublished = By.xpath("//li[text()='Unpublished']");
-	public By status_Archived = By.xpath("//li[text()='Archived']");
-	public By status_Trashed = By.xpath("//li[text()='Trashed']");
+	public By _status_Published = By.xpath("//li[text()='Published']");
+	public By _status_Unpublished = By.xpath("//li[text()='Unpublished']");
+	public By _status_Archived = By.xpath("//li[text()='Archived']");
+	public By _status_Trashed = By.xpath("//li[text()='Trashed']");
 
-	private By category_Uncategorised = By.xpath("//li[text()='Uncategorised']");
-	private By category_SampleDataArticles = By.xpath("//li[text()='Sample Data-Articles']");
-
-	private By feature_yes = By.id("jform_featured0");
-	private By feature_no = By.id("jform_featured1");
-
-	// content in iframe
-	protected By txtarea_iframe = By.id("jform_description_ifr");
-	protected By txtarea_content = By.xpath("//body[@id='tinymce']");
+	protected By _txtarea_iframe = By.id("jform_description_ifr");
+	protected By _txtarea_content = By.xpath("//body[@id='tinymce']");
 
 	// menu bar
-	private By menu_ControlPanel = By.xpath("//a[contains(@class,'admin-logo')]");
-	private By menu_System = By.xpath("//a[@class='dropdown-toggle' and contains(text(),'System')]");
-	private By menu_Users = By.xpath("//a[@class='dropdown-toggle' and contains(text(),'Users')]");
-	private By menu_Menus = By.xpath("//a[@class='dropdown-toggle' and contains(text(),'Menus')]");
-	private By menu_Content = By.xpath("//a[@class='dropdown-toggle' and contains(text(),'Content')]");
-	private By menu_Components = By.xpath("//a[@class='dropdown-toggle' and contains(text(),'Components')]");
-	private By menu_Extensions = By.xpath("//a[@class='dropdown-toggle' and contains(text(),'Extensions')]");
-	private By menu_Help = By.xpath("//a[@class='dropdown-toggle' and contains(text(),'Help')]");
+	private By _menu_ControlPanel = By.xpath("//a[contains(@class,'admin-logo')]");
+	private By _menu_System = By.xpath("//a[@class='dropdown-toggle' and contains(text(),'System')]");
+	private By _menu_Users = By.xpath("//a[@class='dropdown-toggle' and contains(text(),'Users')]");
+	private By _menu_Menus = By.xpath("//a[@class='dropdown-toggle' and contains(text(),'Menus')]");
+	private By _menu_Content = By.xpath("//a[@class='dropdown-toggle' and contains(text(),'Content')]");
+	private By _menu_Components = By.xpath("//a[@class='dropdown-toggle' and contains(text(),'Components')]");
+	private By _menu_Extensions = By.xpath("//a[@class='dropdown-toggle' and contains(text(),'Extensions')]");
+	private By _menu_Help = By.xpath("//a[@class='dropdown-toggle' and contains(text(),'Help')]");
 	// left menu Control Panel
-	private By menu_NewArticle = By.xpath("//span[contains(text(),'New Article')]/..");
-	private By menu_Articles = By.xpath("//span[contains(text(),'Articles')]/..");
-	private By menu_Categories = By.xpath("//span[contains(text(),'Categories')]/..");
-	private By menu_Media = By.xpath("//span[contains(text(),'Media')]/..");
-	private By menu_Menu_s = By.xpath("//span[contains(text(),'Menu(s)')]/..");
-	private By menu_Modules = By.xpath("//span[contains(text(),'Modules')]/..");
-	private By menu_NoUrgentRequests = By.xpath("//span[contains(text(),'No Urgent Requests')]/..");
-	private By menu_Global = By.xpath("//span[contains(text(),'Global')]/..");
-	private By menu_Templates = By.xpath("//span[contains(text(),'Templates')]/..");
-	private By menu_Languages = By.xpath("//span[contains(text(),'Languages')]/..");
-	private By menu_IntallExtensions = By.xpath("//span[contains(text(),'Intall Extensions')]/..");
+	private By _menu_NewArticle = By.xpath("//span[contains(text(),'New Article')]/..");
+	private By _menu_Articles = By.xpath("//span[contains(text(),'Articles')]/..");
+	private By _menu_Categories = By.xpath("//span[contains(text(),'Categories')]/..");
+	private By _menu_Media = By.xpath("//span[contains(text(),'Media')]/..");
+	private By _menu_Menu_s = By.xpath("//span[contains(text(),'Menu(s)')]/..");
+	private By _menu_Modules = By.xpath("//span[contains(text(),'Modules')]/..");
+	private By _menu_NoUrgentRequests = By.xpath("//span[contains(text(),'No Urgent Requests')]/..");
+	private By _menu_Global = By.xpath("//span[contains(text(),'Global')]/..");
+	private By _menu_Templates = By.xpath("//span[contains(text(),'Templates')]/..");
+	private By _menu_Languages = By.xpath("//span[contains(text(),'Languages')]/..");
+	private By _menu_IntallExtensions = By.xpath("//span[contains(text(),'Intall Extensions')]/..");
 	// sub menu
 	private By _linkWebLinks = By.xpath("//a[@class='dropdown-toggle menu-weblinks']");
 	private By _linkBanners = By.xpath("//a[@class='dropdown-toggle menu-banners']");
 
 	// alert message
-	private By mess_Saved = By.xpath("//div[@class='alert-message' and contains(text(),'saved')]");
-	private By mess_Published = By.xpath("//div[@class='alert-message' and contains(text(),'published')]");
-	private By mess_Trashed = By.xpath("//div[@class='alert-message' and contains(text(),'trashed')]");
-	private By mess_Archived = By.xpath("//div[@class='alert-message' and contains(text(),'archived')]");
-	private By mess_Checkedin = By.xpath("//div[@class='alert-message' and contains(text(),'checked in')]");
-	private By mess_Unpublished = By.xpath("//div[@class='alert-message' and contains(text(),'unpublished')]");
+	private By _mess_Saved = By.xpath("//div[@class='alert-message' and contains(text(),'saved')]");
+	private By _mess_Published = By.xpath("//div[@class='alert-message' and contains(text(),'published')]");
+	private By _mess_Trashed = By.xpath("//div[@class='alert-message' and contains(text(),'trashed')]");
+	private By _mess_Archived = By.xpath("//div[@class='alert-message' and contains(text(),'archived')]");
+	private By _mess_Checkedin = By.xpath("//div[@class='alert-message' and contains(text(),'checked in')]");
+	private By _mess_Unpublished = By.xpath("//div[@class='alert-message' and contains(text(),'unpublished')]");
 	// Logout
 	private By _userMenu = By.xpath("//div[contains(text(),'User Menu')]");
 	private By _logoutMenu = By.linkText("Logout");
@@ -169,83 +162,83 @@ public class GeneralPage {
 	}
 
 	public void gotoHome() {
-		Constants.DRIVER.findElement(menu_ControlPanel).click();
+		Constants.DRIVER.findElement(_menu_ControlPanel).click();
 	}
 
 	public void gotoSystem() {
-		Constants.DRIVER.findElement(menu_System).click();
+		Constants.DRIVER.findElement(_menu_System).click();
 	}
 
 	public void clickUsers() {
-		Constants.DRIVER.findElement(menu_Users).click();
+		Constants.DRIVER.findElement(_menu_Users).click();
 	}
 
 	public void clickMenus() {
-		Constants.DRIVER.findElement(menu_Menus).click();
+		Constants.DRIVER.findElement(_menu_Menus).click();
 	}
 
 	public void clickContent() {
-		Constants.DRIVER.findElement(menu_Content).click();
+		Constants.DRIVER.findElement(_menu_Content).click();
 	}
 
 	public void clickComponents() {
-		Constants.DRIVER.findElement(menu_Components).click();
+		Constants.DRIVER.findElement(_menu_Components).click();
 	}
 
 	public void clickExtensions() {
-		Constants.DRIVER.findElement(menu_Extensions).click();
+		Constants.DRIVER.findElement(_menu_Extensions).click();
 	}
 
 	public void clickHelp() {
-		Constants.DRIVER.findElement(menu_Help).click();
+		Constants.DRIVER.findElement(_menu_Help).click();
 	}
 
 	public void gotoNewArticle() {
-		Constants.DRIVER.findElement(menu_NewArticle).click();
+		Constants.DRIVER.findElement(_menu_NewArticle).click();
 	}
 
 	public void gotoArticles() {
-		Constants.DRIVER.findElement(menu_Articles).click();
+		Constants.DRIVER.findElement(_menu_Articles).click();
 	}
 
 	public void gotoCategories() {
-		Constants.DRIVER.findElement(menu_Categories).click();
+		Constants.DRIVER.findElement(_menu_Categories).click();
 	}
 
 	public void gotoMedia() {
-		Constants.DRIVER.findElement(menu_Media).click();
+		Constants.DRIVER.findElement(_menu_Media).click();
 	}
 
 	public void gotoMenus_menubar() {
-		Constants.DRIVER.findElement(menu_Menu_s).click();
+		Constants.DRIVER.findElement(_menu_Menu_s).click();
 	}
 
 	public void gotoModules() {
-		Constants.DRIVER.findElement(menu_Modules).click();
+		Constants.DRIVER.findElement(_menu_Modules).click();
 	}
 
 	public void gotoUsers() {
-		Constants.DRIVER.findElement(menu_Users).click();
+		Constants.DRIVER.findElement(_menu_Users).click();
 	}
 
 	public void gotoNoUrgent() {
-		Constants.DRIVER.findElement(menu_NoUrgentRequests).click();
+		Constants.DRIVER.findElement(_menu_NoUrgentRequests).click();
 	}
 
 	public void gotoGlobal() {
-		Constants.DRIVER.findElement(menu_Global).click();
+		Constants.DRIVER.findElement(_menu_Global).click();
 	}
 
 	public void gotoTemplates() {
-		Constants.DRIVER.findElement(menu_Templates).click();
+		Constants.DRIVER.findElement(_menu_Templates).click();
 	}
 
 	public void gotoLanguage() {
-		Constants.DRIVER.findElement(menu_Languages).click();
+		Constants.DRIVER.findElement(_menu_Languages).click();
 	}
 
 	public void gotoIntallExtensions() {
-		Constants.DRIVER.findElement(menu_IntallExtensions).click();
+		Constants.DRIVER.findElement(_menu_IntallExtensions).click();
 	}
 
 	public void clickBanner() {
@@ -258,27 +251,27 @@ public class GeneralPage {
 
 	// check after create an entry with alert message
 	public boolean checkSaved() {
-		return Constants.DRIVER.findElement(mess_Saved).isDisplayed();
+		return Constants.DRIVER.findElement(_mess_Saved).isDisplayed();
 	}
 
 	public boolean checkPublished() {
-		return Constants.DRIVER.findElement(mess_Published).isDisplayed();
+		return Constants.DRIVER.findElement(_mess_Published).isDisplayed();
 	}
 
 	public boolean checkTrashed() {
-		return Constants.DRIVER.findElement(mess_Trashed).isDisplayed();
+		return Constants.DRIVER.findElement(_mess_Trashed).isDisplayed();
 	}
 
 	public boolean checkArchived() {
-		return Constants.DRIVER.findElement(mess_Archived).isDisplayed();
+		return Constants.DRIVER.findElement(_mess_Archived).isDisplayed();
 	}
 
 	public boolean checkCheckedin() {
-		return Constants.DRIVER.findElement(mess_Checkedin).isDisplayed();
+		return Constants.DRIVER.findElement(_mess_Checkedin).isDisplayed();
 	}
 
 	public boolean checkUnpublished() {
-		return Constants.DRIVER.findElement(mess_Unpublished).isDisplayed();
+		return Constants.DRIVER.findElement(_mess_Unpublished).isDisplayed();
 	}
 
 	// check if an entry created

@@ -13,7 +13,7 @@ public class WebLinksNewPage extends GeneralPage {
 		Constants.DRIVER.findElement(generalPage._txtTitle).sendKeys(title);
 		Constants.DRIVER.findElement(generalPage._txtAlias).sendKeys(alias);
 		Constants.DRIVER.findElement(generalPage._txtUrl).sendKeys(url);
-		Utilities.findElementInIframe(generalPage.txtarea_iframe,generalPage.txtarea_content, content);
+		Utilities.findElementInIframe(generalPage._txtarea_iframe,generalPage._txtarea_content, content);
 		Constants.DRIVER.findElement(_dropdownlist_Status).click();
 		Constants.DRIVER.findElement(status).click();
 		

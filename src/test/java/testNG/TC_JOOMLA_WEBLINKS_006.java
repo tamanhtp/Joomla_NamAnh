@@ -2,6 +2,8 @@ package testNG;
 
 import static org.testng.Assert.assertEquals;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -24,13 +26,8 @@ public class TC_JOOMLA_WEBLINKS_006 extends TestHelper {
 	TestHelper testHelper = new TestHelper();
 	
 	
-	public TC_JOOMLA_WEBLINKS_006() {
-
-	}
-	@Parameters("browser")
-	@Test(description = "TC_JOOMLA_WEBLINKS_006 - Verify user can check-in a weblink")
-	public void f(String browser) throws InterruptedException {
-		
+	@BeforeMethod
+	public void beforeMethod() {
 		Log4j.info("Step 1. Login");
 		LoginPage.login(Constants.LOGIN_USERNAME, Constants.LOGIN_PASSWORD);
 				
@@ -38,10 +35,14 @@ public class TC_JOOMLA_WEBLINKS_006 extends TestHelper {
 		homePage.goToWebLinksPage();
 		
 		Log4j.info("Step 3. Click button new redirect New WebLinks page");
-		webLinksPage.clickBtnNew();
+		webLinksPage.goToWebLinksNewPage();
+	}
+	@Parameters("browser")
+	@Test(description = "TC_JOOMLA_WEBLINKS_006 - Verify user can check-in a weblink")
+	public void f(String browser) throws InterruptedException {
 		
 		Log4j.info("Step 4. Create new");
-		webLinksNewPage.createNew(title,Utilities.getTitle(),url,Utilities.getContent(),webLinksNewPage.status_Published);
+		webLinksNewPage.createNew(title,Utilities.getTitle(),url,Utilities.getContent(),webLinksNewPage._status_Published);
 		
 		Log4j.info("Step 5. Save");
 		webLinksNewPage.clickBtnSave();
@@ -63,6 +64,10 @@ public class TC_JOOMLA_WEBLINKS_006 extends TestHelper {
 		Log4j.info("Step 9. Verify the weblink is checked in successfully");
 		assertEquals(webLinksPage.checkCheckinIconbyTitle(title), false);
 				
+	}
+	@AfterMethod
+	public void AfterMethod() throws InterruptedException {
+		Log4j.info("Clean Data");
 		webLinksPage.cleanData();
 	}
 }

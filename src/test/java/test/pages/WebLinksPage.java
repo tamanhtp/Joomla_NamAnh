@@ -33,5 +33,7 @@ public class WebLinksPage extends GeneralPage{
 		Constants.DRIVER.findElement(generalPage._txtUrl).clear();
 		Constants.DRIVER.findElement(generalPage._txtUrl).sendKeys(url);
 	}
-
+	public void goToWebLinksNewPage() {
+		generalPage.clickBtnNew();
+	}
 }
