@@ -18,9 +18,9 @@ public class TC_JOOMLA_WEBLINKS_002 extends TestHelper {
 	WebLinksPage webLinksPage = new WebLinksPage();
 	WebLinksNewPage webLinksNewPage = new WebLinksNewPage();
 		
-	String title = "Test WEBLINKS_002"+Utilities.timer_hhmmss();
+	String title = "Test WEBLINKS_002"+Utilities.timerNow();
 	String url = "http://www.joomla.org";
-	String title_new = "Test WEBLINKS_002 new"+Utilities.timer_hhmmss();
+	String title_new = "Test WEBLINKS_002 new"+Utilities.timerNow();
 	String url_new = "http://www.google.com";
 	
 	public TC_JOOMLA_WEBLINKS_002() {
@@ -39,7 +39,7 @@ public class TC_JOOMLA_WEBLINKS_002 extends TestHelper {
 		webLinksPage.clickBtnNew();
 		
 		Log4j.info("Step 4. Create new");
-		webLinksNewPage.createNew(title,Utilities.faker_title(),url,Utilities.getContent(),webLinksNewPage.status_Unpublished);
+		webLinksNewPage.createNew(title,Utilities.getTitle(),url,Utilities.getContent(),webLinksNewPage.status_Unpublished);
 		
 		Log4j.info("Step 5. save and close");
 		webLinksNewPage.clickBtnSaveAndClose();
@@ -52,18 +52,16 @@ public class TC_JOOMLA_WEBLINKS_002 extends TestHelper {
 		webLinksPage.selectCheckboxWithTitle(title);
 		
 		Log4j.info("Step 8. Click on 'Edit' icon of the top right toolbar");
-		webLinksPage.click_button(webLinksPage._btnEdit);
+		webLinksPage.clickBtnEdit();
 		
 		Log4j.info("Step 9. Enter a new title on 'Title' field");
-		Utilities.clear(webLinksPage._txtTitle);
-		Utilities.sendkeys(webLinksPage._txtTitle, title_new);
+		webLinksPage.enterTitle(title_new);
 		
 		Log4j.info("Step 10. Enter new valid URL into 'URL' text field");
-		Utilities.clear(webLinksPage._txtUrl);
-		Utilities.sendkeys(webLinksPage._txtUrl, url_new);
+		webLinksPage.enterURL(url_new);
 		
 		Log4j.info("Step 11. Save");
-		webLinksNewPage.click_button(webLinksPage._btnSaveAndClose);
+		webLinksNewPage.clickBtnSaveAndClose();
 		
 		Log4j.info("Step 12. Verify the web link is saved successfully");
 		assertEquals(webLinksPage.checkSaved(), true);
