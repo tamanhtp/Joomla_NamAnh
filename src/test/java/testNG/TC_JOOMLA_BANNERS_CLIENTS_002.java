@@ -3,10 +3,12 @@ package testNG;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import test.pages.BannersClientsPage;
-import test.pages.BannersEditClient;
+import test.pages.BannersEditClientPage;
 import test.pages.BannersNewClientsPage;
 import test.pages.BannersPage;
 import test.pages.HomePage;
@@ -20,12 +22,12 @@ public class TC_JOOMLA_BANNERS_CLIENTS_002 extends TestHelper {
 	BannersPage bannersPage = new BannersPage();
 	BannersClientsPage bannersClientsPage = new BannersClientsPage();
 	BannersNewClientsPage bannersNewClientsPage = new BannersNewClientsPage();
-	BannersEditClient bannersEditClient = new BannersEditClient();
+	BannersEditClientPage bannersEditClientPage = new BannersEditClientPage();
 	String titleName = Utilities.getName();
 	String titleName1 = Utilities.getName();
 
-	@Test(description = "TC_JOOMLA_BANNERS_CLIENTS_002-Verify that user can edit a client")
-	public void f() throws InterruptedException {
+	@BeforeMethod
+	public void beforeMethod() {
 		Log4j.info("Step 1. Login");
 		LoginPage.login(Constants.LOGIN_USERNAME, Constants.LOGIN_PASSWORD);
 
@@ -37,7 +39,10 @@ public class TC_JOOMLA_BANNERS_CLIENTS_002 extends TestHelper {
 
 		Log4j.info("Step 4. Go to new client page");
 		bannersClientsPage.clickBtnNew();
+	}
 
+	@Test(description = "TC_JOOMLA_BANNERS_CLIENTS_002-Verify that user can edit a client")
+	public void f() {
 		Log4j.info("Step 5. Fill new client form");
 		bannersNewClientsPage.fillNewClientForm(titleName,
 				Utilities.getContactName(), Utilities.getContactEmail());
@@ -46,15 +51,13 @@ public class TC_JOOMLA_BANNERS_CLIENTS_002 extends TestHelper {
 		bannersNewClientsPage.clickBtnSave();
 
 		// VP1. A message : "Client successfully saved" shows and edit client page displays
-		String messageActual = bannersEditClient.getMessageText();
-		String messageExpected = "Client saved.";
-		assertEquals(messageActual, messageExpected,
+		assertEquals(bannersEditClientPage.getMessageText(), "Client saved.",
 				"Message Client saved should be displayed");
-		boolean result = bannersEditClient.chekEditPageDisplays();
-		assertTrue(result, "Edit page should be displayed");
+		assertTrue(bannersEditClientPage.doesEditPageDisplays(),
+				"Edit page should be displayed");
 
 		Log4j.info("Step 7. Update new client form");
-		bannersEditClient.updateNewClientForm(titleName1,
+		bannersEditClientPage.updateNewClientForm(titleName1,
 				Utilities.getContactName(), Utilities.getContactEmail());
 
 		Log4j.info("Step 8. Click button save and close");
@@ -65,9 +68,12 @@ public class TC_JOOMLA_BANNERS_CLIENTS_002 extends TestHelper {
 		String messageExpected1 = "Client saved.";
 		assertEquals(messageActual1, messageExpected1,
 				"Message client saved should be displayed");
-		boolean temp = bannersClientsPage.checkElelementExists(titleName1);
+		boolean temp = bannersClientsPage.doesElelementExists(titleName1);
 		assertTrue(temp, "Element is not exist");
-		
+	}
+
+	@AfterMethod
+	public void AfterMethod() throws InterruptedException {
 		Log4j.info("Step 9. Clean Data");
 		bannersClientsPage.cleanData();
 	}

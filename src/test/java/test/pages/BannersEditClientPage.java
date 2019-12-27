@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 import test.utils.Constants;
 
-public class BannersEditClient extends GeneralPage {
+public class BannersEditClientPage extends GeneralPage {
 	private By _txtName = By.id("jform_name");
 	private By _txtContact = By.id("jform_contact");
 	private By _txtEmail = By.id("jform_email");
@@ -27,8 +27,7 @@ public class BannersEditClient extends GeneralPage {
 		return Constants.DRIVER.findElement(_divMessage).getText();
 	}
 
-	public boolean chekEditPageDisplays() {
-		boolean temp = Constants.DRIVER.findElements(_title).size() == 1;
-		return temp;
+	public boolean doesEditPageDisplays() {
+		return Constants.DRIVER.findElements(_title).size() == 1;
 	}
 }

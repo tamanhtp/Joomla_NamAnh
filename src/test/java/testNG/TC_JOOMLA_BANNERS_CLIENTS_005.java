@@ -3,6 +3,8 @@ package testNG;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import test.pages.BannersClientsPage;
@@ -21,9 +23,9 @@ public class TC_JOOMLA_BANNERS_CLIENTS_005 extends TestHelper{
 	BannersNewClientsPage bannersNewClientsPage = new BannersNewClientsPage();
 	String titleName = Utilities.getName();
 	
-  @Test(description = "TC_JOOMLA_BANNERS_CLIENTS_005-Verify that user can archive a client")
-  public void f() throws InterruptedException {
-	  Log4j.info("Step 1. Login");
+	@BeforeMethod
+	public void beforeMethod(){
+		Log4j.info("Step 1. Login");
 		LoginPage.login(Constants.LOGIN_USERNAME, Constants.LOGIN_PASSWORD);
 
 		Log4j.info("Step 2. Go to banner page ");
@@ -34,7 +36,10 @@ public class TC_JOOMLA_BANNERS_CLIENTS_005 extends TestHelper{
 
 		Log4j.info("Step 4. Go to new client page");
 		bannersClientsPage.clickBtnNew();
-
+	}
+	
+  @Test(description = "TC_JOOMLA_BANNERS_CLIENTS_005-Verify that user can archive a client")
+  public void f() throws InterruptedException{
 		Log4j.info("Step 5. Fill new client form");
 		bannersNewClientsPage.fillNewClientForm(titleName,
 				Utilities.getContactName(), Utilities.getContactEmail());
@@ -47,7 +52,7 @@ public class TC_JOOMLA_BANNERS_CLIENTS_005 extends TestHelper{
 		String messageExpected = "Client saved.";
 		assertEquals(messageActual, messageExpected,
 				"Message client saved should be displayed");
-		boolean temp = bannersClientsPage.checkElelementExists(titleName);
+		boolean temp = bannersClientsPage.doesElelementExists(titleName);
 		assertTrue(temp, "Element is not exist");
 
 		Log4j.info("Step 7. Check Clients");
@@ -57,9 +62,7 @@ public class TC_JOOMLA_BANNERS_CLIENTS_005 extends TestHelper{
 		bannersClientsPage.clickBtnArchive();
 
 		//VP2.A message : "1 client successfully archived" shows
-		String messageActual1 = bannersClientsPage.getMessageText();
-		String messageExpected1 = "1 client archived.";
-		assertEquals(messageActual1, messageExpected1,
+		assertEquals(bannersClientsPage.getMessageText(), "1 client archived.",
 				"Message 1 client archived should be displayed");
 		
 		Log4j.info("Step 9. Select Archive in Status dropdown list");
@@ -68,10 +71,12 @@ public class TC_JOOMLA_BANNERS_CLIENTS_005 extends TestHelper{
 		bannersClientsPage.selectStatus("Archived");
 		
 		//VP 3.Client is archived
-		boolean temp1 = bannersClientsPage.checkElelementExists(titleName);
-		assertTrue(temp1, "Element is not exist");	
-		
-		Log4j.info("Step 10. Clean Data");
-		bannersClientsPage.cleanData();
+		assertTrue(bannersClientsPage.doesElelementExists(titleName), "Element is not exist");	
   }
+  
+  @AfterMethod
+	public void afterMethod() throws InterruptedException{
+	  Log4j.info("Step 10. Clean Data");
+		bannersClientsPage.cleanData();
+	}
 }

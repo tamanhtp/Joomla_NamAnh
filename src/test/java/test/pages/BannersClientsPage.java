@@ -74,15 +74,14 @@ public class BannersClientsPage extends GeneralPage {
 		return Constants.DRIVER.findElement(_divMessage).getText();
 	}
 
-	public boolean checkElelementExists(String title) {
-		boolean temp = Constants.DRIVER.findElements(
+	public boolean doesElelementExists(String title) {
+		 return Constants.DRIVER.findElements(
 				By.xpath(String.format(_clientName, title))).size() == 1;
-		return temp;
 	}
 
-	public boolean checkElementStatus(String title, String status) {
-		boolean result = Constants.DRIVER.findElements(
+	public boolean doesElementStatus(String title, String status) {
+		return Constants.DRIVER.findElements(
 				By.xpath(String.format(_boxName, title, status))).size() == 1;
-		return result;
+
 	}
 }
