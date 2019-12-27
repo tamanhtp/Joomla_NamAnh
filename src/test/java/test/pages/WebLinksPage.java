@@ -10,7 +10,6 @@ public class WebLinksPage extends GeneralPage{
 	
 	private By _menu_WebLinks = By.xpath("//ul[@id='submenu']//a[contains(text(),'Web Links')]");
 	private By _divStatus_Weblinks = By.xpath("//select[@id='filter_published']/../div");
-	private By _btnSearchTools = By.xpath("//button[normalize-space(text())='Search Tools']");
 	private String _liStatus = "//div[contains(@id,'filter_published')]//li[text()='%s']";
 
 	public void gotoWeblinks() {
@@ -21,10 +20,7 @@ public class WebLinksPage extends GeneralPage{
 		Constants.DRIVER.findElement(_divStatus_Weblinks).click();
 		Constants.DRIVER.findElement(By.xpath(String.format(_liStatus, status))).click();
 	}
-	public void clickBtnSearchTools() throws InterruptedException{
-		Constants.DRIVER.findElement(_btnSearchTools).click();
-		Thread.sleep(1000);
-	}
+	
 	public void enterTitle(String title) {
 		Constants.DRIVER.findElement(generalPage._txtTitle).clear();
 		Constants.DRIVER.findElement(generalPage._txtTitle).sendKeys(title);
@@ -36,4 +32,5 @@ public class WebLinksPage extends GeneralPage{
 	public void goToWebLinksNewPage() {
 		generalPage.clickBtnNew();
 	}
+	
 }

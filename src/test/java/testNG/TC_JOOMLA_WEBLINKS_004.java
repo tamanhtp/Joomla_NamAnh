@@ -59,7 +59,7 @@ public class TC_JOOMLA_WEBLINKS_004 extends TestHelper {
 		
 	}
 	@AfterMethod
-	public void AfterMethod() throws InterruptedException {
+	public void AfterMethod() {
 		Log4j.info("Clean Data");
 		webLinksPage.cleanData();
 	}
