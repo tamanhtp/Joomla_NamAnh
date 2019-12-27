@@ -3,6 +3,8 @@ package testNG;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import test.pages.BannersClientsPage;
@@ -20,9 +22,9 @@ public class TC_JOOMLA_BANNERS_CLIENTS_003 extends TestHelper {
 	BannersClientsPage bannersClientsPage = new BannersClientsPage();
 	BannersNewClientsPage bannersNewClientsPage = new BannersNewClientsPage();
 	String titleName = Utilities.getName();
-
-	@Test(description = "TC_JOOMLA_BANNERS_CLIENTS_003-Verify that user can publish a client")
-	public void f() throws InterruptedException {
+	
+	@BeforeMethod
+	public void beforeMethod(){
 		Log4j.info("Step 1. Login");
 		LoginPage.login(Constants.LOGIN_USERNAME, Constants.LOGIN_PASSWORD);
 
@@ -34,7 +36,10 @@ public class TC_JOOMLA_BANNERS_CLIENTS_003 extends TestHelper {
 
 		Log4j.info("Step 4. Go to new client page");
 		bannersClientsPage.clickBtnNew();
+	}
 
+	@Test(description = "TC_JOOMLA_BANNERS_CLIENTS_003-Verify that user can publish a client")
+	public void f(){
 		Log4j.info("Step 5. Fill new client form");
 		bannersNewClientsPage.fillNewClientForm(titleName,
 				Utilities.getContactName(), Utilities.getContactEmail(),
@@ -44,12 +49,9 @@ public class TC_JOOMLA_BANNERS_CLIENTS_003 extends TestHelper {
 		bannersNewClientsPage.clickBtnSaveAndClose();
 
 		// VP 1. A message : "Client successfully saved" shows and new client is created
-		String messageActual = bannersClientsPage.getMessageText();
-		String messageExpected = "Client saved.";
-		assertEquals(messageActual, messageExpected,
+		assertEquals(bannersClientsPage.getMessageText(),  "Client saved.",
 				"Message client saved should be displayed");
-		boolean temp = bannersClientsPage.checkElelementExists(titleName);
-		assertTrue(temp, "Element is not exist");
+		assertTrue(bannersClientsPage.doesElelementExists(titleName), "Element is not exist");
 
 		Log4j.info("Step 7. Check Clients");
 		bannersClientsPage.selectCheckbox(titleName);
@@ -58,14 +60,14 @@ public class TC_JOOMLA_BANNERS_CLIENTS_003 extends TestHelper {
 		bannersClientsPage.clickBtnPublish();
 
 		// A message : "1 client successfully published" shows and Client is published
-		String messageActual1 = bannersClientsPage.getMessageText();
-		String messageExpected1 = "1 client published.";
-		assertEquals(messageActual1, messageExpected1,
+		assertEquals(bannersClientsPage.getMessageText(),  "1 client published.",
 				"Message 1 client published should be displayed");
-		boolean temp1 = bannersClientsPage.checkElementStatus(titleName,
-				"publish");
-		assertTrue(temp1, "Element does not exist");
-		
+		assertTrue(bannersClientsPage.doesElementStatus(titleName,
+				"publish"), "Element does not exist");
+	}
+	
+	@AfterMethod
+	public void afterMethod() throws InterruptedException{
 		Log4j.info("Step 9. Clean Data");
 		bannersClientsPage.cleanData();
 	}
