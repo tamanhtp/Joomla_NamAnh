@@ -64,16 +64,13 @@ public class TC_JOOMLA_BANNERS_CLIENTS_002 extends TestHelper {
 		bannersNewClientsPage.clickBtnSaveAndClose();
 
 		// VP2. A message : "Client successfully saved" shows and Client is edited
-		String messageActual1 = bannersClientsPage.getMessageText();
-		String messageExpected1 = "Client saved.";
-		assertEquals(messageActual1, messageExpected1,
+		assertEquals(bannersClientsPage.getMessageText(), "Client saved.",
 				"Message client saved should be displayed");
-		boolean temp = bannersClientsPage.doesElelementExists(titleName1);
-		assertTrue(temp, "Element is not exist");
+		assertTrue(bannersClientsPage.doesElelementExists(titleName1), "Element is not exist");
 	}
 
 	@AfterMethod
-	public void AfterMethod() throws InterruptedException {
+	public void AfterMethod(){
 		Log4j.info("Step 9. Clean Data");
 		bannersClientsPage.cleanData();
 	}

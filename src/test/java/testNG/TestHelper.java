@@ -30,9 +30,7 @@ public class TestHelper {
 	}
 
 	@AfterClass
-	public void afterClass() throws InterruptedException {
-		Log4j.info("Logout");
-		generalPage.logout();
+	public void afterClass(){
 		Log4j.info("Close Browser");
 		Constants.DRIVER.quit();
 	}

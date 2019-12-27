@@ -67,7 +67,7 @@ public class TC_JOOMLA_BANNERS_CLIENTS_003 extends TestHelper {
 	}
 	
 	@AfterMethod
-	public void afterMethod() throws InterruptedException{
+	public void afterMethod(){
 		Log4j.info("Step 9. Clean Data");
 		bannersClientsPage.cleanData();
 	}
